@@ -116,7 +116,7 @@ Chrome浏览器开始搭建
 <meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg">
 <meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Charles.jpg">
 <meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg">
-<meta property="og:updated_time" content="2016-11-29T08:25:56.702Z">
+<meta property="og:updated_time" content="2016-11-29T09:46:46.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebView中页面的调试环境搭建">
 <meta name="twitter:description" content="Html页面在WebView中调试的环境搭建准备工作
@@ -142,7 +142,15 @@ Chrome浏览器开始搭建
     duoshuo: {
       userId: 0,
       author: '博主'
-    }
+    },
+	root: '/',
+    algolia: {
+          applicationID: 'JZOFZF9FY5',
+          apiKey: '058df90b471893a4b2998feafe085065',
+          indexName: 'JZOFZF9FY5',
+          hits: {"per_page":10},
+          labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+        }
   };
 </script>
 
@@ -252,8 +260,9 @@ Chrome浏览器开始搭建
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
-          
+                <a href="javascript:;" class="popup-trigger">
+              
+              
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
@@ -267,19 +276,22 @@ Chrome浏览器开始搭建
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'DUJU-qARm6LmbzxbB44v','2.0.0');
-</script>
-
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
 
 
     </div>
@@ -438,7 +450,7 @@ Chrome浏览器开始搭建
 </ul>
 </li>
 <li>经过以上五步的搭建，你就会发现，你在WebView（安卓模拟器）中请求原来的路径时，已经被charles拦截到本地的项目上了。但是这时候没有控制台啊。怎么调试呢？</li>
-<li>打开Chrome进入Chrome://inspect页面，看到你的请求路径，然后点击inspect，就能打开控制台了，但是这一步第一次打开的时候得科学上网。注意：第一次打开一定要科学上网，但是以后打开就不用了，否则会很慢（卡顿）。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>经过上面的搭建，你就可以发现，在webview中的页面可以直接在pc上调试了。<br>附：<a href="http://www.baidu.com" title="http://www.baidu.com" target="_blank" rel="external">本教程所需安装包</a><br>下载后可以实现离线安装。<br>如有问题，可以留言。</li>
+<li>打开Chrome进入Chrome://inspect页面，看到你的请求路径，然后点击inspect，就能打开控制台了，但是这一步第一次打开的时候得科学上网。注意：第一次打开一定要科学上网，但是以后打开就不用了，否则会很慢（卡顿）。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>经过上面的搭建，你就可以发现，在webview中的页面可以直接在pc上调试了。<br>附：<a href="http://pan.baidu.com/s/1c9VWnG" title="http://pan.baidu.com/s/1c9VWnG" target="_blank" rel="external">本教程所需安装包</a> 密码：zy7t<br>下载后可以实现离线安装。<br>如有问题，可以留言。</li>
 </ol>
 
       
@@ -909,6 +921,22 @@ Chrome浏览器开始搭建
 
 
   
+   
+    
 
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.0.1"></script>
+
+  
+  
 </body>
 </html>
