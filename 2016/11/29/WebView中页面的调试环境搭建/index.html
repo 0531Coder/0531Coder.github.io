@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="liubin, NexT, LIUBIN, Android, 刘彬" />
+  <meta name="keywords" content="Hybrid," />
 
 
 
@@ -84,15 +84,51 @@
 
 
 
-<meta name="description" content="靡不有初，鲜克有终。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Singlon">
-<meta property="og:url" content="https://0531coder.github.io/index.html">
+<meta name="description" content="Html页面在WebView中调试的环境搭建准备工作
+windows系统
+Oracle VM VirtualBox（使用Genymotion所需的环境）
+Genymotion（Android模拟器）
+Charles(抓包工具)
+Chrome浏览器开始搭建
+
+
+如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebView中页面的调试环境搭建">
+<meta property="og:url" content="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/index.html">
 <meta property="og:site_name" content="Singlon">
-<meta property="og:description" content="靡不有初，鲜克有终。">
+<meta property="og:description" content="Html页面在WebView中调试的环境搭建准备工作
+windows系统
+Oracle VM VirtualBox（使用Genymotion所需的环境）
+Genymotion（Android模拟器）
+Charles(抓包工具)
+Chrome浏览器开始搭建
+
+
+如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Charles.jpg">
+<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg">
+<meta property="og:updated_time" content="2016-11-29T08:25:56.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Singlon">
-<meta name="twitter:description" content="靡不有初，鲜克有终。">
+<meta name="twitter:title" content="WebView中页面的调试环境搭建">
+<meta name="twitter:description" content="Html页面在WebView中调试的环境搭建准备工作
+windows系统
+Oracle VM VirtualBox（使用Genymotion所需的环境）
+Genymotion（Android模拟器）
+Charles(抓包工具)
+Chrome浏览器开始搭建
+
+
+如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
+<meta name="twitter:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
 
 
 
@@ -110,7 +146,7 @@
   };
 </script>
 
-  <title> Singlon </title>
+  <title> WebView中页面的调试环境搭建 | Singlon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,9 +177,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,9 +294,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -282,10 +316,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/29/WebView中页面的调试环境搭建/" itemprop="url">
-                  WebView中页面的调试环境搭建
-                </a>
+                WebView中页面的调试环境搭建
               
             
           </h1>
@@ -360,194 +391,145 @@
       
 
       
-        
-          
-          Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
+        <h1 id="Html页面在WebView中调试的环境搭建"><a href="#Html页面在WebView中调试的环境搭建" class="headerlink" title="Html页面在WebView中调试的环境搭建"></a>Html页面在WebView中调试的环境搭建</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>windows系统</li>
+<li>Oracle VM VirtualBox（使用Genymotion所需的环境）</li>
+<li>Genymotion（Android模拟器）</li>
+<li>Charles(抓包工具)</li>
+<li>Chrome浏览器<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2></li>
+</ul>
+<ol>
+<li>如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运行Genymotion。这里以联想电脑的ThinkPad为例，其他型号电脑请自行百度。<ul>
+<li>保存现在电脑上正在操作的文档，并且重启。</li>
+<li>当进入开机自检阶段（屏幕显示Lenovo Logo）的时候快速点击F2，进入BIOS设置界面。截图如下：<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg" alt="开机自检页面"><br>（开机自检页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg" alt="BIOS设置页面"><br>(BIOS设置页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg" alt="BIOS设置页面"><br>（BIOS设置页面）</li>
+<li>进入Virtualization选项并且将其设置为true即可。</li>
+</ul>
+</li>
+<li>安装Oracle VM VirtualBox<ul>
+<li>如果已经安装过Oracle VM VirtualBox，请直接跳到下一步。</li>
+<li>如果没有安装，打开安装文件直接安装即可，安装路径请随意但是不要有中文（切记）。</li>
+<li>安装完打开软件。<br><img src="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg" alt="Oracle VM VirtualBox打开截图"><br>（Oracle VM VirtualBox打开截图）</li>
+<li>选择管理–&gt; 导入虚拟电脑 选择安装包里面的Android虚拟机，按照提示导入完成即可。</li>
+<li>运行导入的虚拟机。</li>
+</ul>
+</li>
+<li>安装Genymotion<ul>
+<li>解压安装包中的Genymotion，然后找到Genymotion.exe,这时候就发现了导入到Oracle VM VirtualBox中的虚拟机。</li>
+<li>这时候要进行一个网络代理设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg" alt="Genymotion代理设置"><br>（Genymotion网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
+<li>设置完代理以后就可以直接运行模拟器了</li>
+<li>运行模拟器以后，需要将Genymotion的Wifi设置上网代理，具体修改方法就是进入模拟器的设置页面–&gt; 打开无线网络设置（Wifi设置）–&gt; 找到连接的无线网络（Wired network）并且长按–&gt; 选择Modify netWork –&gt; 选中Show advanced options 参数按照下方截图来填就可以了，注意端口号要和在Oracle VM VirtualBox中设置的端口号一致。</li>
+<li>wifi代理设置截图：<br><img src="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg" alt="wifi代理设置"><br>（wifi网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
+</ul>
+</li>
+<li>打开Chrome，在地址栏输入Chrome://inspect。现在应该能够找到你的设备。<ul>
+<li>为了让Charles能够抓到Chrome的请求，为Chrome安装Proxy SwitchyOmega插件（改插件在安装包里面有），在Chrome中的扩展程序页面可直接拖进安装。</li>
+<li>安装完插件以后新增一种情景模式：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg" alt="Omega_step1"></li>
+<li>对新增的情景模式进行设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg" alt="Omega_step2"></li>
+<li>保存修改后，当使用Charles调试时选择这个情景模式就可以了。</li>
+</ul>
+</li>
+<li>Charles 安装<ul>
+<li>打开安装包中的Charles文件夹，打开Charles安装包，进行安装。安装完成后会发现是30天的试用版，在Charles文件夹中还有一个Charles.jar，将它复制到安装所在位置的lib文件夹下，替换掉原来的即可。重新打开会发现…。</li>
+<li>设置Charles监听的端口：<br><img src="http://ofneqckfu.bkt.clouddn.com/Charles.jpg" alt="Charles监听端口设置截图"> </li>
+<li>同样将端口设置为和模拟器的一致。</li>
+<li>设置完端口以后，打开Genymotion，访问一个网页，会发现请求已经被Charles抓到了。找到你需要调试的域名，右击–&gt; 选择MappingLocal </li>
+<li>按照截图设置<br><img src="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg" alt="MappingLocal"></li>
+<li>host设置为要拦截的域名（关键字），port就是默认的80即可。localpath就选择你本地的项目所在路径。</li>
+</ul>
+</li>
+<li>经过以上五步的搭建，你就会发现，你在WebView（安卓模拟器）中请求原来的路径时，已经被charles拦截到本地的项目上了。但是这时候没有控制台啊。怎么调试呢？</li>
+<li>打开Chrome进入Chrome://inspect页面，看到你的请求路径，然后点击inspect，就能打开控制台了，但是这一步第一次打开的时候得科学上网。注意：第一次打开一定要科学上网，但是以后打开就不用了，否则会很慢（卡顿）。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>经过上面的搭建，你就可以发现，在webview中的页面可以直接在pc上调试了。<br>附：<a href="http://www.baidu.com" title="http://www.baidu.com" target="_blank" rel="external">本教程所需安装包</a><br>下载后可以实现离线安装。<br>如有问题，可以留言。</li>
+</ol>
 
+      
+    </div>
 
-如果你的处理器已经打开支持虚拟化技术的选
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/29/WebView中页面的调试环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/29/HelloWorld/" itemprop="url">
-                  HelloWorld
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T12:46:25+08:00" content="2016-11-29">
-              2016-11-29
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/29/HelloWorld/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/HelloWorld/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/29/HelloWorld/" class="leancloud_visitors" data-flag-title="HelloWorld">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/Hybrid/" rel="tag">#Hybrid</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          开题  这是我的第一篇博客，我搭建好博客平台已经一个月了，这一个月我的博客上一直是搭建博客的时候的HelloWorld。没有写博客并不是忙，其实是懒了。年轻人是不能够懒的。看似有大把的时间。但是一旦懒了以后，就会发现时间已经偷偷溜走了。所以说，接下来的时间里，无论多忙。我都会保证每周都更新一篇博客。
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/29/HelloWorld/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/29/HelloWorld/" rel="next" title="HelloWorld">
+                <i class="fa fa-chevron-left"></i> HelloWorld
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/"
+     data-title="WebView中页面的调试环境搭建"
+     data-content=""
+     data-url="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/"
+           data-title="WebView中页面的调试环境搭建" data-url="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -567,8 +549,17 @@ Chrome浏览器开始搭建
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ofneqckfu.bkt.clouddn.com/headicon.png"
@@ -638,6 +629,17 @@ Chrome浏览器开始搭建
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Html页面在WebView中调试的环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Html页面在WebView中调试的环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">1.2.</span> <span class="nav-text">开始搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">1.3.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -741,6 +743,10 @@ Chrome浏览器开始搭建
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
