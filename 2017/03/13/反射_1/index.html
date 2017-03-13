@@ -96,7 +96,7 @@
 前几天在网上看到了一篇基于AOP编程的代码，里面用到了动态代理，还有Annotation，感觉比较先进，想分析一下，然后又重新拾起了javase中的反射温习了一遍。并在blog中记录下来。  
 
 什么是反射JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java">
-<meta property="og:updated_time" content="2017-03-13T03:21:36.911Z">
+<meta property="og:updated_time" content="2017-03-13T04:51:07.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射（reflection）详解<1>">
 <meta name="twitter:description" content="写在前面
@@ -475,7 +475,7 @@
 }
 </code></pre></li>
 </ol>
-<p>注意：获取指定参数的构造方法的时候，如果获取一个参数的构造方法时不要传null。    </p>
+<p>注意：获取指定参数的构造方法的时候，如果获取一个参数的构造方法时可以传null，也可以传一个空的Class[]。    </p>
 <h5 id="动态实例化一个对象"><a href="#动态实例化一个对象" class="headerlink" title="动态实例化一个对象"></a>动态实例化一个对象</h5><ol>
 <li>获取一个类。</li>
 <li>获取这个类的构造方法。</li>
