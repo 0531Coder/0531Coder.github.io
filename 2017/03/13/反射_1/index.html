@@ -96,7 +96,7 @@
 前几天在网上看到了一篇基于AOP编程的代码，里面用到了动态代理，还有Annotation，感觉比较先进，想分析一下，然后又重新拾起了javase中的反射温习了一遍。并在blog中记录下来。  
 
 什么是反射JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java">
-<meta property="og:updated_time" content="2017-03-13T03:01:06.239Z">
+<meta property="og:updated_time" content="2017-03-13T03:21:36.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射（reflection）详解<1>">
 <meta name="twitter:description" content="写在前面
@@ -377,14 +377,14 @@
       
 
       
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><blockquote>
+        <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><blockquote>
 <p>前几天在网上看到了一篇基于AOP编程的代码，里面用到了动态代理，还有Annotation，感觉比较先进，想分析一下，然后又重新拾起了javase中的反射温习了一遍。并在blog中记录下来。  </p>
 </blockquote>
-<h1 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h1><p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。–from 百度  </p>
+<h4 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h4><p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。–from 百度  </p>
 <blockquote>
 <p>我理解的反射：在运行时，你获取了一个指向某个编译时不存在你的程序空间中的对象的引用，并且可以获取这个引用的属性和方法以及构造方法。  </p>
 </blockquote>
-<p>至于编译时、运行时、编译型语言、解释型语言、类加载器、动态加载类，这些概念大体解释一下：  </p>
+<p>至于编译时、运行时、编译型语言、解释型语言、类加载器、动态加载类，这些概念大体解释一下：</p>
 <ul>
 <li>编译时：将.java文件转换成.class文件的过程。   </li>
 <li>运行时:程序的执行过程，在java中类加载器加载.class文件，并交给jvm处理的过程。   </li>
@@ -393,23 +393,23 @@
 <li>编译型语言和解释型语言的区别：编译型语言效率高，依赖于编译器，但是跨平台差。解释型的效率低，依赖于解释器，但跨平台强。   </li>
 <li>类加载器：类加载器就是JVM中的类装载器，作用就是将编译好的.class字节码运到检查器进行安全检查的，检查通过后开始解释执行。   </li>
 <li>运行时动态加载类：利用反射的原理，调用Class.forName(“ClassName”)方法，获取到的某个类（拿到的不是类的对象）。  </li>
-<li>静态加载类：new ClassName()。与运行时动态加载类的区别就是：静态加载类在编译时该类不能缺席(会报错)，但是运行时动态加载类在编译时，该类可以缺席（不会报错）。  </li>
+<li>静态加载类：new ClassName()。与运行时动态加载类的区别就是：静态加载类在编译时该类不能缺席(会报错)，但是运行时动态加载类在编译时，该类可以缺席（不会报错）。    </li>
 </ul>
-<h1 id="反射的作用"><a href="#反射的作用" class="headerlink" title="反射的作用"></a>反射的作用</h1><ul>
+<h4 id="反射的作用"><a href="#反射的作用" class="headerlink" title="反射的作用"></a>反射的作用</h4><ul>
 <li>Spring中IOC（控制反转）、AOP（面向方面编程）。</li>
 <li>Hibernate框架：关联映射等。</li>
-<li>白盒测试、使用无法反编译的API等。</li>
+<li>白盒测试、使用无法反编译的API等。     </li>
 </ul>
-<h1 id="反射相关API"><a href="#反射相关API" class="headerlink" title="反射相关API"></a>反射相关API</h1><h4 id="java-lang包下：Class"><a href="#java-lang包下：Class" class="headerlink" title="java.lang包下：Class:"></a>java.lang包下：Class<t>:</t></h4><ul>
-<li>表示一个正在运行的Java应用程序中的类或者接口，是Reflection的起源。</li>
+<h4 id="反射相关API"><a href="#反射相关API" class="headerlink" title="反射相关API"></a>反射相关API</h4><h5 id="java-lang包下：Class"><a href="#java-lang包下：Class" class="headerlink" title="java.lang包下：Class:"></a>java.lang包下：Class<t>:</t></h5><ul>
+<li>表示一个正在运行的Java应用程序中的类或者接口，是Reflection的起源。    </li>
 </ul>
-<h4 id="java-lang-reflect包下："><a href="#java-lang-reflect包下：" class="headerlink" title="java.lang.reflect包下："></a>java.lang.reflect包下：</h4><ul>
-<li>Field类：代表类的成员变量（属性）  </li>
-<li>Method类：代表类的方法。   </li>
-<li>Constructor类：代表类的构造方法。   </li>
+<h5 id="java-lang-reflect包下："><a href="#java-lang-reflect包下：" class="headerlink" title="java.lang.reflect包下："></a>java.lang.reflect包下：</h5><ul>
+<li>Field类：代表类的成员变量（属性）    </li>
+<li>Method类：代表类的方法。       </li>
+<li>Constructor类：代表类的构造方法。     </li>
 <li>Array类：提供了动态创建数组以及访问数组的元素的静态方法。        </li>
 </ul>
-<h1 id="反射的实现"><a href="#反射的实现" class="headerlink" title="反射的实现"></a>反射的实现</h1><h4 id="生成一个正在运行的类对象，有四种方法："><a href="#生成一个正在运行的类对象，有四种方法：" class="headerlink" title="生成一个正在运行的类对象，有四种方法："></a>生成一个正在运行的类对象，有四种方法：</h4><ol>
+<h4 id="反射的实现"><a href="#反射的实现" class="headerlink" title="反射的实现"></a>反射的实现</h4><h5 id="生成一个正在运行的类对象，有四种方法："><a href="#生成一个正在运行的类对象，有四种方法：" class="headerlink" title="生成一个正在运行的类对象，有四种方法："></a>生成一个正在运行的类对象，有四种方法：</h5><ol>
 <li>使用对象的的getClass()方法。</li>
 <li>使用static method ClassforName()。</li>
 <li>使用.class语法。</li>
@@ -437,7 +437,7 @@
 }
 </code></pre></li>
 </ol>
-<h4 id="获取一个类的构造方法有以下四种方式："><a href="#获取一个类的构造方法有以下四种方式：" class="headerlink" title="获取一个类的构造方法有以下四种方式："></a>获取一个类的构造方法有以下四种方式：</h4><ol>
+<h5 id="获取一个类的构造方法有以下四种方式："><a href="#获取一个类的构造方法有以下四种方式：" class="headerlink" title="获取一个类的构造方法有以下四种方式："></a>获取一个类的构造方法有以下四种方式：</h5><ol>
 <li>Constructor getConstructor(Class params)–获得类的指定参数类型的公共构造函数。</li>
 <li>Constructor[] getConstructors()–获取类的所有的公共构造函数。</li>
 <li>Constructor getDeclaredConstructor(Class params)–获取类的指定参数类型的构造函数（不限制访问级别）</li>
@@ -475,8 +475,8 @@
 }
 </code></pre></li>
 </ol>
-<p>注意：获取指定参数的构造方法的时候，如果获取一个参数的构造方法时不要传null。</p>
-<h4 id="动态实例化一个对象"><a href="#动态实例化一个对象" class="headerlink" title="动态实例化一个对象"></a>动态实例化一个对象</h4><ol>
+<p>注意：获取指定参数的构造方法的时候，如果获取一个参数的构造方法时不要传null。    </p>
+<h5 id="动态实例化一个对象"><a href="#动态实例化一个对象" class="headerlink" title="动态实例化一个对象"></a>动态实例化一个对象</h5><ol>
 <li>获取一个类。</li>
 <li>获取这个类的构造方法。</li>
 <li><p>利用获取到的构造方法，动态实例化这个对象。</p>
@@ -504,7 +504,7 @@
 }
 </code></pre></li>
 </ol>
-<p>动态实例化对象可以使用在依赖注入中，也就是我重新看反射的原因。<br>java反射（reflection）详解<1>就先写到这儿。如果文中有错误和不恰当的地方，欢迎留言探讨。</1></p>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>动态实例化对象可以使用在依赖注入中，也就是我重新看反射的原因。<br>java反射（reflection）详解<1>就先写到这儿。如果文中有错误和不恰当的地方，欢迎留言探讨。</1></p>
 
       
     </div>
@@ -719,7 +719,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是反射"><span class="nav-number">2.</span> <span class="nav-text">什么是反射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射的作用"><span class="nav-number">3.</span> <span class="nav-text">反射的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射相关API"><span class="nav-number">4.</span> <span class="nav-text">反射相关API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-lang包下：Class"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">java.lang包下：Class:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-lang-reflect包下："><span class="nav-number">4.0.0.2.</span> <span class="nav-text">java.lang.reflect包下：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射的实现"><span class="nav-number">5.</span> <span class="nav-text">反射的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#生成一个正在运行的类对象，有四种方法："><span class="nav-number">5.0.0.1.</span> <span class="nav-text">生成一个正在运行的类对象，有四种方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取一个类的构造方法有以下四种方式："><span class="nav-number">5.0.0.2.</span> <span class="nav-text">获取一个类的构造方法有以下四种方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态实例化一个对象"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">动态实例化一个对象</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是反射"><span class="nav-number">2.</span> <span class="nav-text">什么是反射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射的作用"><span class="nav-number">3.</span> <span class="nav-text">反射的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射相关API"><span class="nav-number">4.</span> <span class="nav-text">反射相关API</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#java-lang包下：Class"><span class="nav-number">4.1.</span> <span class="nav-text">java.lang包下：Class:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-lang-reflect包下："><span class="nav-number">4.2.</span> <span class="nav-text">java.lang.reflect包下：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反射的实现"><span class="nav-number">5.</span> <span class="nav-text">反射的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#生成一个正在运行的类对象，有四种方法："><span class="nav-number">5.1.</span> <span class="nav-text">生成一个正在运行的类对象，有四种方法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取一个类的构造方法有以下四种方式："><span class="nav-number">5.2.</span> <span class="nav-text">获取一个类的构造方法有以下四种方式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态实例化一个对象"><span class="nav-number">5.3.</span> <span class="nav-text">动态实例化一个对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结语"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
           </div>
         </section>
