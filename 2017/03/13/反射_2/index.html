@@ -1,0 +1,1259 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javase," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="接上篇上一篇介绍了反射的基本概念：  
+
+运行时获取到一个Class  
+获取该类的构造方法  
+动态实例化这个类    
+
+这篇博客说一下怎样通过反射获取类的属性、方法、接口、该类的父类、以及通过反射实现Array工具类对数组的操作
+
+先贴上这篇文章中用到的bean类
+
+ public class Person {
+    private String name;
+    private int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java反射（reflection）详解<2>">
+<meta property="og:url" content="https://0531coder.github.io/2017/03/13/反射_2/index.html">
+<meta property="og:site_name" content="singlon">
+<meta property="og:description" content="接上篇上一篇介绍了反射的基本概念：  
+
+运行时获取到一个Class  
+获取该类的构造方法  
+动态实例化这个类    
+
+这篇博客说一下怎样通过反射获取类的属性、方法、接口、该类的父类、以及通过反射实现Array工具类对数组的操作
+
+先贴上这篇文章中用到的bean类
+
+ public class Person {
+    private String name;
+    private int">
+<meta property="og:updated_time" content="2017-03-13T06:53:35.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java反射（reflection）详解<2>">
+<meta name="twitter:description" content="接上篇上一篇介绍了反射的基本概念：  
+
+运行时获取到一个Class  
+获取该类的构造方法  
+动态实例化这个类    
+
+这篇博客说一下怎样通过反射获取类的属性、方法、接口、该类的父类、以及通过反射实现Array工具类对数组的操作
+
+先贴上这篇文章中用到的bean类
+
+ public class Person {
+    private String name;
+    private int">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    },
+	root: '/',
+    algolia: {
+          applicationID: 'JZOFZF9FY5',
+          apiKey: '058df90b471893a4b2998feafe085065',
+          indexName: 'JZOFZF9FY5',
+          hits: {"per_page":10},
+          labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+        }
+  };
+</script>
+
+  <title> java反射（reflection）详解<2> | singlon </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5ab28e56b1c7b78d18efe717a24cea0c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">singlon</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这儿应该是一段比较装逼的话。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+                <a href="javascript:;" class="popup-trigger">
+              
+              
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java反射（reflection）详解<2>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-13T14:48:40+08:00" content="2017-03-13">
+              2017-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/13/反射_2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/反射_2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/13/反射_2/" class="leancloud_visitors" data-flag-title="java反射（reflection）详解<2>">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="接上篇"><a href="#接上篇" class="headerlink" title="接上篇"></a>接上篇</h4><p>上一篇介绍了反射的基本概念：  </p>
+<ul>
+<li>运行时获取到一个Class  </li>
+<li>获取该类的构造方法  </li>
+<li>动态实例化这个类    </li>
+</ul>
+<p>这篇博客说一下怎样通过反射获取类的属性、方法、接口、该类的父类、以及通过反射实现Array工具类对数组的操作</p>
+<blockquote>
+<p>先贴上这篇文章中用到的bean类</p>
+</blockquote>
+<pre><code> public class Person {
+    private String name;
+    private int age;
+    public boolean isSomking;
+
+    public Person(){}
+    public Person(String name,int age){
+        this.name = name;
+        this.age = age;
+    }
+    Person(String name){
+        this.name = name;
+    }
+    private Person(int age){
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String toString() {
+       return &quot;姓名：&quot;+this.getName()+&quot;,年龄：&quot;+this.getAge();
+    }
+}    
+</code></pre><hr>
+<pre><code>public class Animal {
+    public String name;
+    private int age;
+    boolean isLand;
+    public void eat(){
+        System.out.println(&quot;动物在吃饭&quot;);
+    }
+    private void sleep(){
+        System.out.println(&quot;动物在睡觉&quot;);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isLand() {
+        return isLand;
+    }
+
+    public void setLand(boolean land) {
+        isLand = land;
+    }
+}   
+</code></pre><hr>
+<pre><code>public class Cat extends Animal implements View.OnClickListener,Serializable{
+    public void run(String name,int age){
+        System.out.println(&quot;一只&quot; + age + &quot;岁的叫&quot; + name +&quot;的猫在跑&quot;);
+    }
+    public void run(){
+        System.out.println(&quot;猫在跑&quot;);
+    }
+    private void jump(){
+        System.out.println(&quot;猫在跳&quot;);
+    }
+
+    public static void main (String[] args){
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Cat&quot;);
+            Cat cat = (Cat) c.newInstance();
+            Method method = c.getDeclaredMethod(&quot;jump&quot;,null);
+            method.invoke(cat,null);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}
+</code></pre><hr>
+<h4 id="属性（Field）"><a href="#属性（Field）" class="headerlink" title="属性（Field）"></a>属性（Field）</h4><h5 id="通过反射获取属性信息和获取构造方法相似，不赘述。"><a href="#通过反射获取属性信息和获取构造方法相似，不赘述。" class="headerlink" title="通过反射获取属性信息和获取构造方法相似，不赘述。"></a>通过反射获取属性信息和获取构造方法相似，不赘述。</h5><pre><code>public class FieldDemo {
+
+    public static void main(String[] args) {
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Person&quot;);
+            //方法一：获取所有公有类型的属性
+            System.out.println(&quot;获取所有的公有属性：&quot;);
+            Field[] fields = c.getFields();
+            for (int i = 0; i &lt; fields.length; i++) {
+                System.out.println(fields[i]);
+            }
+            //方法二：获取指定的公有属性
+            System.out.println(&quot;获取指定的公有属性：&quot;);
+            Field field = c.getField(&quot;isSomking&quot;);
+            System.out.println(field.toGenericString());
+            //方法三：获取所有的属性（不限制级别）
+            System.out.println(&quot;获取所有的属性：&quot;);
+            Field[] privateFields = c.getDeclaredFields();
+            for (int i = 0; i &lt; privateFields.length; i++) {
+                System.out.println(privateFields[i]);
+            }
+            //方法四：获取指定的属性（不限制级别），但是这儿获取的私有属性是不能被访问的。
+            System.out.println(&quot;获取指定的属性：&quot;);
+            Field privateField = c.getDeclaredField(&quot;age&quot;);
+            System.out.println(privateField);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+
+        }
+    }
+}
+</code></pre><h4 id="方法（Method）"><a href="#方法（Method）" class="headerlink" title="方法（Method）"></a>方法（Method）</h4><h4 id="通过反射获取方法和获取构造方法相似，不赘述。"><a href="#通过反射获取方法和获取构造方法相似，不赘述。" class="headerlink" title="通过反射获取方法和获取构造方法相似，不赘述。"></a>通过反射获取方法和获取构造方法相似，不赘述。</h4><pre><code>public class MethodDemo {
+
+    public static void main(String[] args) {
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Cat&quot;);
+            //获取类中所有的公有方法（该方法会将父类的公有方法一并得出）
+            System.out.println(&quot;获取类中所有的公有方法&quot;);
+            Method[] methods = c.getMethods();
+            for(int i = 0;i&lt;methods.length;i++){
+                System.out.println(methods[i]);
+            }
+            //获取类中指定参数的公有的方法
+            System.out.println(&quot;获取类中指定参数的公有方法&quot;);
+            Method method = c.getMethod(&quot;run&quot;,new Class[]{String.class,int.class});
+            System.out.println(method.toGenericString());
+            //获取所有的方法（不限制级别）这儿只能获取到本类中的不限制级别方法。
+            System.out.println(&quot;获取所有的方法（不限制级别）&quot;);
+            Method[] privateMethods = c.getDeclaredMethods();
+            for(int i = 0;i&lt;privateMethods.length;i++){
+                System.out.println(privateMethods[i]);
+            }
+            //获取指定参数的方法（不限制级别）如果没有参数注意同上一篇的获取构造方法
+            System.out.println(&quot;获取指定参数的方法（不限制级别）&quot;);
+            Method privateMethod = c.getDeclaredMethod(&quot;jump&quot;,null);
+            System.out.println(privateMethod.toGenericString());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+</code></pre><h4 id="通过反射调用Class中的方法（method-invoke-）"><a href="#通过反射调用Class中的方法（method-invoke-）" class="headerlink" title="通过反射调用Class中的方法（method.invoke()）"></a>通过反射调用Class中的方法（method.invoke()）</h4><ol>
+<li>首先生成一个Class的对象</li>
+<li>获取到你要调用的方法</li>
+<li>使用要调用方法的invoke(class,params)   </li>
+</ol>
+<p>注意：私有方法只能在本类中调用。这儿所说的本类是指方法所在的类。</p>
+<pre><code>public class MethodDemo {
+
+    public static void main(String[] args) {
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Cat&quot;);
+            //获取类中所有的公有方法（该方法会将父类的公有方法一并得出）
+            System.out.println(&quot;获取类中所有的公有方法&quot;);
+            Method[] methods = c.getMethods();
+            for(int i = 0;i&lt;methods.length;i++){
+                System.out.println(methods[i]);
+            }
+            //获取类中指定参数的公有的方法
+            System.out.println(&quot;获取类中指定参数的公有方法&quot;);
+            Method method = c.getMethod(&quot;run&quot;,new Class[]{String.class,int.class});
+            System.out.println(method.toGenericString());
+            //获取所有的方法（不限制级别）这儿只能获取到本类中的不限制级别方法。
+            System.out.println(&quot;获取所有的方法（不限制级别）&quot;);
+            Method[] privateMethods = c.getDeclaredMethods();
+            for(int i = 0;i&lt;privateMethods.length;i++){
+                System.out.println(privateMethods[i]);
+            }
+            //获取指定参数的方法（不限制级别）如果没有参数可以传null
+            System.out.println(&quot;获取指定参数的方法（不限制级别）&quot;);
+            Method privateMethod = c.getDeclaredMethod(&quot;jump&quot;,null);
+            System.out.println(privateMethod.toGenericString());
+
+            //调用一个Class的方法  注意这儿不能调用类的私有方法，私有方法只能在本类中调用
+//            Cat cat = (Cat) c.newInstance();
+//            privateMethod.invoke(cat,null);
+            System.out.println(&quot;通过反射调用class中的方法&quot;);
+            Cat cat = (Cat) c.getConstructor().newInstance();
+            method.invoke(cat, new Object[]{&quot;小花&quot;,2});
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+</code></pre><h4 id="通过反射获取一个类中的接口信息（Interface）"><a href="#通过反射获取一个类中的接口信息（Interface）" class="headerlink" title="通过反射获取一个类中的接口信息（Interface）"></a>通过反射获取一个类中的接口信息（Interface）</h4><p>首先让Person实现两个接口，然后通过反射获取到该类实现的接口信息</p>
+<pre><code>public class InterfaceDemo {
+    public static void main(String[] args){
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Cat&quot;);
+            Class[] interfaces = c.getInterfaces();
+            for(int i = 0;i&lt;interfaces.length;i++){
+                System.out.println(interfaces[i].toString());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h4 id="通过反射获取一个类的父类信息（SuperClass）"><a href="#通过反射获取一个类的父类信息（SuperClass）" class="headerlink" title="通过反射获取一个类的父类信息（SuperClass）"></a>通过反射获取一个类的父类信息（SuperClass）</h4><pre><code>public class SuperClassDemo {
+
+    public static void main(String[] args){
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Cat&quot;);
+            Class clazz = c.getSuperclass();
+            System.out.println(clazz.toString());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h4 id="通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）"><a href="#通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）" class="headerlink" title="通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）"></a>通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）</h4><pre><code>public class ArrayDemo {
+    public static void main(String[] args) {
+        Person[] persons = new Person[]{
+                new Person(&quot;路人甲&quot;, 18),
+                new Person(&quot;路人乙&quot;, 19),
+                new Person(&quot;路人丙&quot;, 20)
+        };
+        Array.set(persons,0,new Person(&quot;修改&quot;,0));
+        for (int i = 0;i&lt;persons.length;i++){
+            System.out.println(persons[i]);
+        }
+        System.out.println(Array.getLength(persons));
+
+    }
+}
+</code></pre><h4 id="补充（AccessableObject）"><a href="#补充（AccessableObject）" class="headerlink" title="补充（AccessableObject）"></a>补充（AccessableObject）</h4><blockquote>
+<p>上面说到通过反射获取到类的私有属性和方法的时候无法访问或者调用，于是翻看reflect包下的AccessableObject类，有如下发现。  </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> The AccessibleObject class is the base class for Field, Method and Constructor objects. It provides the ability to flag a reflected object as suppressing default Java language access control checks when it is used.  The access checks–for public, default (package) access, protected, and private members–are performed when Fields, Methods or Constructors are used to set or get fields, to invoke methods, or to create and initialize new instances of classes, respectively.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>由于英语没有过六级，只能理解大体意思：就是通过反射进行获取属性、构造方法、方法会进行安全检查。但是下面它提供了这样的一个方法：  </p>
+</blockquote>
+<pre><code> public void setAccessible(boolean flag) throws SecurityException {
+        SecurityManager sm = System.getSecurityManager();
+        if (sm != null) sm.checkPermission(ACCESS_PERMISSION);
+        setAccessible0(this, flag);
+}
+</code></pre><hr>
+<pre><code>private static void setAccessible0(AccessibleObject obj, boolean flag)
+    throws SecurityException
+{
+    if (obj instanceof Constructor &amp;&amp; flag == true) {
+        Constructor&lt;?&gt; c = (Constructor&lt;?&gt;)obj;
+        Class&lt;?&gt; clazz = c.getDeclaringClass();
+        if (clazz == Class.class) {
+            throw new SecurityException(&quot;Can not make a java.lang.Class&quot; +
+                                        &quot; constructor accessible&quot;);
+        } else if (clazz == Method.class) {
+            throw new SecurityException(&quot;Can not make a java.lang.reflect.Method&quot; +
+                                        &quot; constructor accessible&quot;);
+        } else if (clazz == Field.class) {
+            throw new SecurityException(&quot;Can not make a java.lang.reflect.Field&quot; +
+                                        &quot; constructor accessible&quot;);
+        }
+    }
+    obj.override = flag;
+}
+</code></pre><p>设置flag为true，可以压制java的安全检查。于是我就试着对私有的方法和属性进行操作：  </p>
+<pre><code>public class AccessableDemo {
+
+    public static void main(String[] args) {
+        Class&lt;?&gt; c = null;
+        try {
+            c = Class.forName(&quot;com.demo.moutain.reflectdemo.Person&quot;);
+            //获取私有的属性
+            Field field = c.getDeclaredField(&quot;age&quot;);
+            System.out.println(&quot;获取私有属性&quot; + field);
+            //获取私有的方法
+            Method method = c.getDeclaredMethod(&quot;Somking&quot;, null);
+            System.out.println(method);
+            //使用空参构造动态实例化对象
+            Person p = (Person) c.newInstance();
+            //访问私有属性
+            field.setAccessible(true);
+            field.set(p, 20);
+            //调用私有方法
+            method.setAccessible(true);
+            method.invoke(p, null);
+            //验证私有属性的访问
+            System.out.println(p.getAge());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+</code></pre><blockquote>
+<p>结果是实现了通过反射对类私有属性和私有方法的访问。    </p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>通过反射获取类的属性、方法、接口、该类的父类、以及通过反射实现Array工具类对数组的操作。</li>
+<li>通过反射访问类中私有的属性和方法。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ofneqckfu.bkt.clouddn.com/weipay.png" alt="LBIN WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ofneqckfu.bkt.clouddn.com/alipay.png" alt="LBIN Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javase/" rel="tag">#javase</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/反射_1/" rel="next" title="java反射（reflection）详解<1>">
+                <i class="fa fa-chevron-left"></i> java反射（reflection）详解<1>
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/13/反射_2/"
+     data-title="java反射（reflection）详解<2>"
+     data-content=""
+     data-url="https://0531coder.github.io/2017/03/13/反射_2/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/13/反射_2/"
+           data-title="java反射（reflection）详解<2>" data-url="https://0531coder.github.io/2017/03/13/反射_2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ofneqckfu.bkt.clouddn.com/headicon.png"
+               alt="LBIN" />
+          <p class="site-author-name" itemprop="name">LBIN</p>
+          <p class="site-description motion-element" itemprop="description">靡不有初，鲜克有终。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/0531Coder" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005055320632216/home" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#接上篇"><span class="nav-number">1.</span> <span class="nav-text">接上篇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性（Field）"><span class="nav-number">2.</span> <span class="nav-text">属性（Field）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过反射获取属性信息和获取构造方法相似，不赘述。"><span class="nav-number">2.1.</span> <span class="nav-text">通过反射获取属性信息和获取构造方法相似，不赘述。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法（Method）"><span class="nav-number">3.</span> <span class="nav-text">方法（Method）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射获取方法和获取构造方法相似，不赘述。"><span class="nav-number">4.</span> <span class="nav-text">通过反射获取方法和获取构造方法相似，不赘述。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射调用Class中的方法（method-invoke-）"><span class="nav-number">5.</span> <span class="nav-text">通过反射调用Class中的方法（method.invoke()）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射获取一个类中的接口信息（Interface）"><span class="nav-number">6.</span> <span class="nav-text">通过反射获取一个类中的接口信息（Interface）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过反射获取一个类的父类信息（SuperClass）"><span class="nav-number">7.</span> <span class="nav-text">通过反射获取一个类的父类信息（SuperClass）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）"><span class="nav-number">8.</span> <span class="nav-text">通过Array来操作数组（Array提供动态的访问或者生成数组的方法）（Array）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充（AccessableObject）"><span class="nav-number">9.</span> <span class="nav-text">补充（AccessableObject）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LBIN</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"BINBIN-blog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rWFrKBSomTL6McvBnAgCLF08-gzGzoHsz", "b1J62nHA6PdhUB8Bo4darFsC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+   
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.0.1"></script>
+
+  
+  
+</body>
+</html>
