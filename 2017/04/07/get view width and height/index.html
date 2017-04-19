@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="liubin, NexT, LIUBIN, Android, 刘彬" />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="靡不有初，鲜克有终。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="message">
-<meta property="og:url" content="https://0531coder.github.io/message/index.html">
+<meta name="description" content="获取view的宽高。
+在学习自定义控件的时候需要在view渲染出来之前获取到该view的宽高，如果直接获取宽高会是0，所以在网上搜到了以下几个方法。用博客记录下来。
+
+普通的做法LayoutInflater.from(context).inflate(R.layout.float_window_small, this);
+       View view = findViewById(R.id.f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在view渲染出来之前获取view的宽高">
+<meta property="og:url" content="https://0531coder.github.io/2017/04/07/get view width and height/index.html">
 <meta property="og:site_name" content="singlon">
-<meta property="og:description" content="靡不有初，鲜克有终。">
-<meta property="og:updated_time" content="2016-10-28T04:17:31.928Z">
+<meta property="og:description" content="获取view的宽高。
+在学习自定义控件的时候需要在view渲染出来之前获取到该view的宽高，如果直接获取宽高会是0，所以在网上搜到了以下几个方法。用博客记录下来。
+
+普通的做法LayoutInflater.from(context).inflate(R.layout.float_window_small, this);
+       View view = findViewById(R.id.f">
+<meta property="og:updated_time" content="2017-04-19T07:52:07.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="message">
-<meta name="twitter:description" content="靡不有初，鲜克有终。">
+<meta name="twitter:title" content="在view渲染出来之前获取view的宽高">
+<meta name="twitter:description" content="获取view的宽高。
+在学习自定义控件的时候需要在view渲染出来之前获取到该view的宽高，如果直接获取宽高会是0，所以在网上搜到了以下几个方法。用博客记录下来。
+
+普通的做法LayoutInflater.from(context).inflate(R.layout.float_window_small, this);
+       View view = findViewById(R.id.f">
 
 
 
@@ -119,13 +131,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    message | singlon
-  
-</title>
+  <title> 在view渲染出来之前获取view的宽高 | singlon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +162,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,9 +276,266 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在view渲染出来之前获取view的宽高
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-07T14:14:14+08:00" content="2017-04-07">
+              2017-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/07/get view width and height/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/07/get view width and height/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/07/get view width and height/" class="leancloud_visitors" data-flag-title="在view渲染出来之前获取view的宽高">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <h4 id="获取view的宽高。"><a href="#获取view的宽高。" class="headerlink" title="获取view的宽高。"></a>获取view的宽高。</h4><blockquote>
+<p>在学习自定义控件的时候需要在view渲染出来之前获取到该view的宽高，如果直接获取宽高会是0，所以在网上搜到了以下几个方法。用博客记录下来。</p>
+</blockquote>
+<h5 id="普通的做法"><a href="#普通的做法" class="headerlink" title="普通的做法"></a>普通的做法</h5><pre><code>LayoutInflater.from(context).inflate(R.layout.float_window_small, this);
+       View view = findViewById(R.id.float_window_small);
+       viewHeight = view.getWidth();
+       viewWidth = view.getHeight();
+       System.out.println(&quot;measure width=&quot; + viewWidth + &quot; height=&quot; + viewHeight);
+</code></pre><p>在view渲染出来的情况下，这种方法是能够获取到宽高的。但是在onCreate()、onStrart()、onResume()方法中会返回0，这是应为当前activity所代表的界面还没显示出来没有添加到WindowPhone的DecorView上或要获取的view没有被添加到DecorView上或者该View的visibility属性为gone 或者该view的width或height真的为0  所以只有上述条件都不成立时才能得到非0的width和height。<br>如果要使用这种方法获取view的宽高建议：     </p>
+<ol>
+<li><p>在回调（点击事件、触摸事件、焦点事件）中测量。要保证获取宽高的view是在setContentView时设进去的View或它的子View。     </p>
+</li>
+<li><p>在activity被显示出来时即添加到了DecorView上时获取宽和高如onWindowFocusChanged()回调方法。要保证获取宽高的view是在setContentView时设进去的View或它的子View。    </p>
+<pre><code>@Override  
+  public void onWindowFocusChanged(boolean hasFocus) {  
+    View iv1 = findViewById(R.id.iv1);  
+    View iv2=findViewById(R.id.iv2);  
+    String msg1=&quot;iv1&apos; width:&quot;+iv1.getWidth()+&quot; height:&quot;+iv1.getHeight()+&quot;  measuredWidth:&quot;+iv1.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv1.getMeasuredHeight();  
+    String msg2=&quot;iv2&apos; width:&quot;+iv2.getWidth()+&quot; height:&quot;+iv2.getHeight()+&quot;  measuredWidth:&quot;+iv2.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv2.getMeasuredHeight();  
+    i(&quot;onWindowFocusChanged() &quot;+msg1);  
+    i(&quot;onWindowFocusChanged() &quot;+msg2);  
+        super.onWindowFocusChanged(hasFocus);  
+  }     
+</code></pre></li>
+</ol>
+<ol>
+<li><p>在onResume方法最后开线程300毫秒左右后获取宽和高   因为onResume执行完后300毫秒后 界面就显示出来了。     </p>
+<pre><code>view.postDelayed(new Runnable() {     
+            @Override  
+            public void run() {  
+                View iv1 = findViewById(R.id.iv1);  
+                View iv2=findViewById(R.id.iv2);  
+                String msg1=&quot;iv1&apos; width:&quot;+iv1.getWidth()+&quot; height:&quot;+iv1.getHeight()+&quot;  measuredWidth:&quot;+iv1.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv1.getMeasuredHeight();  
+                String msg2=&quot;iv2&apos; width:&quot;+iv2.getWidth()+&quot; height:&quot;+iv2.getHeight()+&quot;  measuredWidth:&quot;+iv2.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv2.getMeasuredHeight();  
+                i(&quot;onWindowFocusChanged() &quot;+msg1);  
+                i(&quot;onWindowFocusChanged() &quot;+msg2);  
+            }  
+        }, 300);        
+</code></pre></li>
+<li><p>在onCreate()或onResume()等方法中监听视图树来获取，获取完后记得让view删除该回调。</p>
+<pre><code>view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {  
+        @Override  
+        public void onGlobalLayout() {  
+            view.postDelayed(new Runnable() {   
+                @Override  
+                public void run() {  
+                    View iv1 = findViewById(R.id.iv1);  
+                    View iv2=findViewById(R.id.iv2);  
+                    String msg1=&quot;iv1&apos; width:&quot;+iv1.getWidth()+&quot; height:&quot;+iv1.getHeight()+&quot;  measuredWidth:&quot;+iv1.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv1.getMeasuredHeight();  
+                    String msg2=&quot;iv2&apos; width:&quot;+iv2.getWidth()+&quot; height:&quot;+iv2.getHeight()+&quot;  measuredWidth:&quot;+iv2.getMeasuredWidth()+&quot;measuredHeight:&quot;+iv2.getMeasuredHeight();  
+                    i(&quot;onWindowFocusChanged() &quot;+msg1);  
+                    i(&quot;onWindowFocusChanged() &quot;+msg2);  
+                }  
+            }, 300);  
+        }  
+    });  
+</code></pre></li>
+<li><p>取消视图树监听      </p>
+<pre><code>if(Build.VERSION.SDK_INT&gt;=16){  
+                    tv.getViewTreeObserver().removeOnGlobalLayoutListener(this);  
+                }else{  
+                    tv.getViewTreeObserver().removeGlobalOnLayoutListener(this);  
+                }       
+</code></pre></li>
+</ol>
+<hr>
+<h5 id="渲染之前获取的方法："><a href="#渲染之前获取的方法：" class="headerlink" title="渲染之前获取的方法："></a>渲染之前获取的方法：</h5><pre><code>LayoutInflater.from(context).inflate(R.layout.float_window_small, this);
+       View view = findViewById(R.id.float_window_small);
+       int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+       int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+       view.measure(w, h);
+       viewHeight = view.getMeasuredHeight();
+       viewWidth = view.getMeasuredWidth();
+       System.out.println(&quot;measure width=&quot; + viewWidth + &quot; height=&quot; + viewHeight);
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ofneqckfu.bkt.clouddn.com/weipay.png" alt="LBIN WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ofneqckfu.bkt.clouddn.com/alipay.png" alt="LBIN Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/反射_3/" rel="next" title="java反射（Reflection）详解<3>">
+                <i class="fa fa-chevron-left"></i> java反射（Reflection）详解<3>
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/04/07/get view width and height/"
+     data-title="在view渲染出来之前获取view的宽高"
+     data-content=""
+     data-url="https://0531coder.github.io/2017/04/07/get view width and height/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
   </div>
 
 
@@ -283,8 +546,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="message/index.html"
-           data-title="message" data-url="https://0531coder.github.io/message/index.html">
+      <div class="ds-thread" data-thread-key="2017/04/07/get view width and height/"
+           data-title="在view渲染出来之前获取view的宽高" data-url="https://0531coder.github.io/2017/04/07/get view width and height/">
       </div>
     
   </div>
@@ -308,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ofneqckfu.bkt.clouddn.com/headicon.png"
@@ -379,6 +651,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取view的宽高。"><span class="nav-number">1.</span> <span class="nav-text">获取view的宽高。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通的做法"><span class="nav-number">1.1.</span> <span class="nav-text">普通的做法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染之前获取的方法："><span class="nav-number">1.2.</span> <span class="nav-text">渲染之前获取的方法：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -482,6 +765,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
