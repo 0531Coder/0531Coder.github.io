@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>singlon</title>
-  <subtitle>这儿应该是一句比较装逼的话。</subtitle>
+  <subtitle>不是技术宅。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://0531coder.github.io/"/>
