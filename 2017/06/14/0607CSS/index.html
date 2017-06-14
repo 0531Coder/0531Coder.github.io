@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hybrid," />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,51 +84,37 @@
 
 
 
-<meta name="description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
+<meta name="description" content="一、CSS介绍：
+CSS：层叠样式表。以html文档为基础。
+要考虑CSS样式的兼容性，CSS3，IE9以上版本支持。CSS2.0+能兼容IE6以上的版本。二、编写CSS样式：
+html标签的默认样式是能够通过浏览器的改变的，所以说标签的样式也叫作浏览器样式（默认样式）。
+引入CSS的方式：
 
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
+行内设置（设置style属性来实现控制标签样式的效果），style属性中可多条的CSS样式。
+内嵌样式（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebView中页面的调试环境搭建">
-<meta property="og:url" content="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/index.html">
+<meta property="og:title" content="css学习笔记">
+<meta property="og:url" content="https://0531coder.github.io/2017/06/14/0607CSS/index.html">
 <meta property="og:site_name" content="singlon">
-<meta property="og:description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
+<meta property="og:description" content="一、CSS介绍：
+CSS：层叠样式表。以html文档为基础。
+要考虑CSS样式的兼容性，CSS3，IE9以上版本支持。CSS2.0+能兼容IE6以上的版本。二、编写CSS样式：
+html标签的默认样式是能够通过浏览器的改变的，所以说标签的样式也叫作浏览器样式（默认样式）。
+引入CSS的方式：
 
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Charles.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg">
-<meta property="og:updated_time" content="2016-11-29T09:46:46.364Z">
+行内设置（设置style属性来实现控制标签样式的效果），style属性中可多条的CSS样式。
+内嵌样式（">
+<meta property="og:updated_time" content="2017-06-14T09:50:21.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebView中页面的调试环境搭建">
-<meta name="twitter:description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
+<meta name="twitter:title" content="css学习笔记">
+<meta name="twitter:description" content="一、CSS介绍：
+CSS：层叠样式表。以html文档为基础。
+要考虑CSS样式的兼容性，CSS3，IE9以上版本支持。CSS2.0+能兼容IE6以上的版本。二、编写CSS样式：
+html标签的默认样式是能够通过浏览器的改变的，所以说标签的样式也叫作浏览器样式（默认样式）。
+引入CSS的方式：
 
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
-<meta name="twitter:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
+行内设置（设置style属性来实现控制标签样式的效果），style属性中可多条的CSS样式。
+内嵌样式（">
 
 
 
@@ -154,7 +140,7 @@ Chrome浏览器开始搭建
   };
 </script>
 
-  <title> WebView中页面的调试环境搭建 | singlon </title>
+  <title> css学习笔记 | singlon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -318,7 +304,7 @@ Chrome浏览器开始搭建
             
             
               
-                WebView中页面的调试环境搭建
+                css学习笔记
               
             
           </h1>
@@ -330,8 +316,8 @@ Chrome浏览器开始搭建
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T14:05:24+08:00" content="2016-11-29">
-              2016-11-29
+            <time itemprop="dateCreated" datetime="2017-06-14T17:45:56+08:00" content="2017-06-14">
+              2017-06-14
             </time>
           </span>
 
@@ -344,8 +330,8 @@ Chrome浏览器开始搭建
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hybrid/" itemprop="url" rel="index">
-                    <span itemprop="name">Hybrid</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -360,8 +346,8 @@ Chrome浏览器开始搭建
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/29/WebView中页面的调试环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/" itemprop="commentsCount"></span>
+                <a href="/2017/06/14/0607CSS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/14/0607CSS/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -371,7 +357,7 @@ Chrome浏览器开始搭建
 
           
           
-             <span id="/2016/11/29/WebView中页面的调试环境搭建/" class="leancloud_visitors" data-flag-title="WebView中页面的调试环境搭建">
+             <span id="/2017/06/14/0607CSS/" class="leancloud_visitors" data-flag-title="css学习笔记">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -393,55 +379,314 @@ Chrome浏览器开始搭建
       
 
       
-        <h1 id="Html页面在WebView中调试的环境搭建"><a href="#Html页面在WebView中调试的环境搭建" class="headerlink" title="Html页面在WebView中调试的环境搭建"></a>Html页面在WebView中调试的环境搭建</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>windows系统</li>
-<li>Oracle VM VirtualBox（使用Genymotion所需的环境）</li>
-<li>Genymotion（Android模拟器）</li>
-<li>Charles(抓包工具)</li>
-<li>Chrome浏览器<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2></li>
+        <h4 id="一、CSS介绍："><a href="#一、CSS介绍：" class="headerlink" title="一、CSS介绍："></a>一、CSS介绍：</h4><ul>
+<li>CSS：层叠样式表。以html文档为基础。</li>
+<li>要考虑CSS样式的兼容性，CSS3，IE9以上版本支持。CSS2.0+能兼容IE6以上的版本。<h4 id="二、编写CSS样式："><a href="#二、编写CSS样式：" class="headerlink" title="二、编写CSS样式："></a>二、编写CSS样式：</h4></li>
+<li>html标签的默认样式是能够通过浏览器的改变的，所以说标签的样式也叫作浏览器样式（默认样式）。</li>
+<li><p>引入CSS的方式：</p>
+<ul>
+<li>行内设置（设置style属性来实现控制标签样式的效果），style属性中可多条的CSS样式。</li>
+<li>内嵌样式（嵌入样式、内部样式）：在head标签当中嵌入style标签（style中的type属性的默认值就是type=”text/css”）。</li>
+<li>外部样式（外联样式）：通过link标签来实现。引入一个CSS文件来管理CSS样式。</li>
+<li>补充：@import导入样式就是相当于内嵌样式只不过是通过@import来导入一个css文件，也可以使用@import标签将一个css文件引入到另一个css文件。<ul>
+<li>这样使用CSS样式会导致：<br>1、css文件不能并行下载。<br>2、导入样式的书写必须写在所有的css样式规则之前（执行的先后顺序）。<br>导入css使用非常不便，不推荐使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css的简单属性：<br>  width、height、color、background-color、font-size等。</p>
+</li>
+</ul>
+<h4 id="三、css选择器综述："><a href="#三、css选择器综述：" class="headerlink" title="三、css选择器综述："></a>三、css选择器综述：</h4><ol>
+<li>所有标签选择器*{}：<br>通配符选择器的优先级高于继承的样式。通常使用通配符选择器清除html标签的默认样式（margin padding）。</li>
+<li>标签选择器： p{} div{}</li>
+<li>id选择器： #head{}，id选择器使用’#’，帮助我们调整当前页面唯一id值的标签样式 。id在一个页面中是唯一的。                  <ul>
+<li>补充：id选择器的命名规范：</li>
+<li>只允许出现字母（大小写均可，严格区分大小写）、下划线、数字。id=”p1”和id=”P1”不冲突。</li>
+<li>只允许以字母开头。</li>
+<li>命名没有长度限制，但是不建议太长。</li>
+<li>不允许出现标签名（约定俗成，不是硬性规定）。</li>
+</ul>
+</li>
+<li>类选择器 .head{}：<br>类选择器就是在一个html文档中选出需要统一样式的一组不相关的标签用同一类名命名，然后同一修改其样式。同一个标签可以属于多个类，类名之间用空格隔开。<ul>
+<li>补充：class的属性值可以在同一页面中出现多次，但是id的属性值只能在同一页面中出现一次。建议多使用class，因为便于管理，如果确实能够确定当前页面中这个标签只会出现一次（比如logo），就可以是用id选择器，如果不能保证就使用类选择器。</li>
 </ul>
 <ol>
-<li>如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运行Genymotion。这里以联想电脑的ThinkPad为例，其他型号电脑请自行百度。<ul>
-<li>保存现在电脑上正在操作的文档，并且重启。</li>
-<li>当进入开机自检阶段（屏幕显示Lenovo Logo）的时候快速点击F2，进入BIOS设置界面。截图如下：<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg" alt="开机自检页面"><br>（开机自检页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg" alt="BIOS设置页面"><br>(BIOS设置页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg" alt="BIOS设置页面"><br>（BIOS设置页面）</li>
-<li>进入Virtualization选项并且将其设置为true即可。</li>
-</ul>
+<li>层级选择器</li>
+<li>分组选择器</li>
+<li>属性选择器：<br>就是选择出有某个或者某些属性的某个标签。标签名[id]，比方说：h1[id][class]{}，选择出有id属性和class属性的h1标签来实现对应的css样式。也可以指定某个属性的值的标签，比方说指定type为text的输入框input[type=”text”]。</li>
+<li>子元素（子代）选择器：<br>使用”&gt;”连接标签，只选择下面一级的对应的标签。并不是所有的标签嵌套就意味着多级，span的嵌套不算是子集，只有容器嵌套才能算是子集。</li>
+<li>相邻兄弟选择器</li>
+<li>伪类选择器：<pre><code>&lt;pre&gt;&lt;code&gt;
+/*未被访问过的超链接的css样式*/
+a:link {
+    color: red;
+}
+/*访问过的超链接的css样式*/
+a:visited {
+    color: purple;
+}
+/*悬停的时候执行的css样式*/
+a:hover {
+    background-color: silver;
+    color: white;
+}
+/*点击时展示的css样式*/
+a:active {
+    color: yellow;
+}
+/*love hate原则 必须要注意设置伪类的顺序，不然因为层叠的原因会出现效果混乱*/
+/*获得焦点的时候展示的css样式 */
+:focus {
+    font-size: 20px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre></li>
+<li>伪元素选择器： <pre><code>
+/* 伪元素是指的内容css样式的变化 */
+/* artcle-txt类中的第一行显示该css样式。 */
+.artcle-txt:first-line {
+    color: red;
+}
+/* artcle-txt类中的第一个字显示该css样式 */
+.artcle-txt:first-letter {
+    color: green;
+}
+/* 是第一个子标签的span标签显示这个css样式 */
+span:first-child {
+    color: silver;
+}
+/* 只有before和after伪元素才有content，并且content是加在行内。如果再加上display属性并且设置为block，这样就将content设置成了块状元素 */
+.wrap:before,.wrap:after {
+content: "----------------";
+display: block;
+}
+</code></pre>
+
 </li>
-<li>安装Oracle VM VirtualBox<ul>
-<li>如果已经安装过Oracle VM VirtualBox，请直接跳到下一步。</li>
-<li>如果没有安装，打开安装文件直接安装即可，安装路径请随意但是不要有中文（切记）。</li>
-<li>安装完打开软件。<br><img src="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg" alt="Oracle VM VirtualBox打开截图"><br>（Oracle VM VirtualBox打开截图）</li>
-<li>选择管理–&gt; 导入虚拟电脑 选择安装包里面的Android虚拟机，按照提示导入完成即可。</li>
-<li>运行导入的虚拟机。</li>
-</ul>
-</li>
-<li>安装Genymotion<ul>
-<li>解压安装包中的Genymotion，然后找到Genymotion.exe,这时候就发现了导入到Oracle VM VirtualBox中的虚拟机。</li>
-<li>这时候要进行一个网络代理设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg" alt="Genymotion代理设置"><br>（Genymotion网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
-<li>设置完代理以后就可以直接运行模拟器了</li>
-<li>运行模拟器以后，需要将Genymotion的Wifi设置上网代理，具体修改方法就是进入模拟器的设置页面–&gt; 打开无线网络设置（Wifi设置）–&gt; 找到连接的无线网络（Wired network）并且长按–&gt; 选择Modify netWork –&gt; 选中Show advanced options 参数按照下方截图来填就可以了，注意端口号要和在Oracle VM VirtualBox中设置的端口号一致。</li>
-<li>wifi代理设置截图：<br><img src="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg" alt="wifi代理设置"><br>（wifi网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
-</ul>
-</li>
-<li>打开Chrome，在地址栏输入Chrome://inspect。现在应该能够找到你的设备。<ul>
-<li>为了让Charles能够抓到Chrome的请求，为Chrome安装Proxy SwitchyOmega插件（改插件在安装包里面有），在Chrome中的扩展程序页面可直接拖进安装。</li>
-<li>安装完插件以后新增一种情景模式：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg" alt="Omega_step1"></li>
-<li>对新增的情景模式进行设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg" alt="Omega_step2"></li>
-<li>保存修改后，当使用Charles调试时选择这个情景模式就可以了。</li>
-</ul>
-</li>
-<li>Charles 安装<ul>
-<li>打开安装包中的Charles文件夹，打开Charles安装包，进行安装。安装完成后会发现是30天的试用版，在Charles文件夹中还有一个Charles.jar，将它复制到安装所在位置的lib文件夹下，替换掉原来的即可。重新打开会发现…。</li>
-<li>设置Charles监听的端口：<br><img src="http://ofneqckfu.bkt.clouddn.com/Charles.jpg" alt="Charles监听端口设置截图"> </li>
-<li>同样将端口设置为和模拟器的一致。</li>
-<li>设置完端口以后，打开Genymotion，访问一个网页，会发现请求已经被Charles抓到了。找到你需要调试的域名，右击–&gt; 选择MappingLocal </li>
-<li>按照截图设置<br><img src="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg" alt="MappingLocal"></li>
-<li>host设置为要拦截的域名（关键字），port就是默认的80即可。localpath就选择你本地的项目所在路径。</li>
-</ul>
-</li>
-<li>经过以上五步的搭建，你就会发现，你在WebView（安卓模拟器）中请求原来的路径时，已经被charles拦截到本地的项目上了。但是这时候没有控制台啊。怎么调试呢？</li>
-<li>打开Chrome进入Chrome://inspect页面，看到你的请求路径，然后点击inspect，就能打开控制台了，但是这一步第一次打开的时候得科学上网。注意：第一次打开一定要科学上网，但是以后打开就不用了，否则会很慢（卡顿）。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>经过上面的搭建，你就可以发现，在webview中的页面可以直接在pc上调试了。<br>附：<a href="http://pan.baidu.com/s/1c9VWnG" title="http://pan.baidu.com/s/1c9VWnG" target="_blank" rel="external">本教程所需安装包</a> 密码：zy7t<br>下载后可以实现离线安装。<br>如有问题，可以留言。</li>
 </ol>
+</li>
+</ol>
+<ol>
+<li>复合选择器：<br>标签和class一起定义，只有符合class的对应的标签才能实现对应的css样式。注意是一个”&amp;&amp;”的关系。标签名在前，类名在后，没有空格。</li>
+<li>后代选择器：（实际上是从右向左进行匹配的）<br>class和标签一起定义，指这个class下面的对应的标签实现对应的css样式。也是一个”&amp;&amp;”的关系。class在前，标签名在后，中间空格隔开。</li>
+<li>并集选择器：<br>多个选择器用”,”隔开。</li>
+</ol>
+<h4 id="四、css的层叠性和继承性："><a href="#四、css的层叠性和继承性：" class="headerlink" title="四、css的层叠性和继承性："></a>四、css的层叠性和继承性：</h4><ul>
+<li>层叠性是指在样式的优先级相同的情况下才会生效。</li>
+<li>层叠性：就是css是分层的，后面设置的样式会覆盖前面设置的样式。</li>
+<li>继承性：子类标签会受父类容器样式的影响。继承的样式是文字相关的样式。但是容器相关的样式不会被继承。一般会在body中，给子类标签设置同一的文字样式。</li>
+</ul>
+<h4 id="五、css的优先级："><a href="#五、css的优先级：" class="headerlink" title="五、css的优先级："></a>五、css的优先级：</h4><pre><code>1. 由高到低：行内样式-&gt;id选择器-&gt;类选择器-&gt;标签选择器。
+2. 继承的css样式优先级要大于标签默认的css样式。
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                &lt;title&gt;12css优先级案例&lt;/title&gt;
+                &lt;style type=&quot;text/css&quot;&gt;
+                /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+                    body {
+                        color: red;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;这是一个标题&lt;/h1&gt;
+                &lt;div&gt;这是一个div&lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+3. 通配符（*）的css样式要比继承的css样式的优先级要高。
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+4. 标签选择器的css样式的优先级要高于通配符选择器的css样式。
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式 */
+            h1 {
+                color: orange;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+5. 类选择器的css样式的优先级要高于标签选择器的css样式
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+6. id选择器的css样式优先级要高于类选择器的css样式的优先级
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+            /*id选择器的css样式的优先级要高于类选择器的css样式的优先级 */
+            #h1-wrap {
+                color: silver;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot; id=&quot;h1-wrap&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+7. 行内样式的优先级要高于id选择器的优先级
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+            /*id选择器的css样式的优先级要高于类选择器的css样式的优先级 */
+            #h1-wrap {
+                color: silver;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot; id=&quot;h1-wrap&quot; style=&quot;color:pink&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+复合选择器和上面的选择器优先级一致，一个一个的比较就好。
+</code></pre><h4 id="六、css的单位各文字排版"><a href="#六、css的单位各文字排版" class="headerlink" title="六、css的单位各文字排版"></a>六、css的单位各文字排版</h4><ul>
+<li>标签的显示属性：display： display可以来设置块级元素变成一个行内元素（inline），同理display属性可以将行内元素变成一个块级元素（block）。display属性设置为none的话就是将该标签删除（不显示、不占位）。</li>
+<li><p>补充：还有一个属性：visibility:这个属性控制css的隐藏和显示。如果设置为隐藏，控件为隐藏，但是占位还在。</p>
+</li>
+<li><p>行内元素、行内块元素、块级元素之间的区别：</p>
+<ol>
+<li>行内元素不能设置宽高，行内块元素、块级元素能够设置宽高。</li>
+<li>行内元素只有左右边距没有上下边距，行内块元素和块级元素有上下左右边距。</li>
+<li>行内元素和行内块元素不独占一行，块级元素独占一行。</li>
+</ol>
+</li>
+<li><p>css颜色表示：</p>
+<ol>
+<li>RGB颜色表示法：p {color:rgb(255,255,0)}或者p{color:(100%,100%,0)}。（使用0~255之间的值来表示，或者是使用百分比来表示）。</li>
+<li>十六进制的颜色值来表示。</li>
+</ol>
+</li>
+<li>css的长度单位：<ol>
+<li>绝对长度单位：cm、mm、in、pc等等。</li>
+<li>相对长度单位：px、em（相当于当前字体的大小）。开发的时候以px为主。</li>
+</ol>
+</li>
+<li>font-size：设置字体字号的大小。</li>
+<li>font-family：设置字体的样式。<ul>
+<li>注意：<ol>
+<li>为了保证网页显示效果的兼容性一般会设置多个字体，多个字体之间使用英文逗号隔开，优先级顺序是从左往右适配。</li>
+<li>中文字体需要加英文状态下的引号，英文字体不需要引号，当需要设置英文字体时，英文字体名必须在中文字体名之前。</li>
+<li>如果字体名中包含空格、#、$等符号，则该字体名必须加英文状态下的单引号或者双引号。</li>
+<li>尽量使用默认字体，保证在任何用户的浏览器中都能正常显示。</li>
+<li>为了保证兼容性，尽量使用utf-8编码来表示中文字符。可以在浏览器控制台中使用escape()函数来转化。转化完成后将‘%’换成‘/’即可。</li>
+<li>为了更加保证兼容性可以选择衬线体或者非衬线体作为字体最后的一个选择。衬线体和非衬线体是指一种字体的样式。如果前面指定的字体没有找到，浏览器会在当前电脑中任意找一种衬线体或者非衬线体来显示。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>font-weight：字体加粗有继承性，属性值：normal、bold、bolder、lighter、100~900（100的整数倍）。400是normal、700是bold。</li>
+<li>font-style：设置字体的显示风格（斜体、正常、倾斜）。属性值有normal（正常显示）、italic（浏览器会使用斜体的字体显示，如果该字体没有斜体，则正常显示）、oblique（浏览器让字体倾斜显示）。</li>
+</ul>
+<h4 id="七、盒模型："><a href="#七、盒模型：" class="headerlink" title="七、盒模型："></a>七、盒模型：</h4><ul>
+<li>盒模型的前提是DTD声明。不然可能出现非标准盒模型的展示。</li>
+<li>组成：内容区域、内边距、边框、外边距。</li>
+<li>网页就是多个盒子嵌套的结果。</li>
+<li>内边距出现在内容区域的周围，当给元素添加背景色和背景图片时，背景色或者背景图像也就显示在内边距区域内。如果给元素定义边框，边框会出现在内边距和外边距之间。</li>
+</ul>
 
       
     </div>
@@ -484,7 +729,7 @@ Chrome浏览器开始搭建
       
         <div class="post-tags">
           
-            <a href="/tags/Hybrid/" rel="tag">#Hybrid</a>
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
       
@@ -493,17 +738,13 @@ Chrome浏览器开始搭建
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/HelloWorld/" rel="next" title="HelloWorld">
-                <i class="fa fa-chevron-left"></i> HelloWorld
+              <a href="/2017/06/14/0524HTML/" rel="next" title="html学习笔记">
+                <i class="fa fa-chevron-left"></i> html学习笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/13/反射_1/" rel="prev" title="java反射（reflection）详解<1>">
-                java反射（reflection）详解<1> <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,8 +770,8 @@ Chrome浏览器开始搭建
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/"
-           data-title="WebView中页面的调试环境搭建" data-url="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/">
+      <div class="ds-thread" data-thread-key="2017/06/14/0607CSS/"
+           data-title="css学习笔记" data-url="https://0531coder.github.io/2017/06/14/0607CSS/">
       </div>
     
   </div>
@@ -641,7 +882,7 @@ Chrome浏览器开始搭建
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Html页面在WebView中调试的环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Html页面在WebView中调试的环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">1.2.</span> <span class="nav-text">开始搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">1.3.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、CSS介绍："><span class="nav-number">1.</span> <span class="nav-text">一、CSS介绍：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、编写CSS样式："><span class="nav-number">2.</span> <span class="nav-text">二、编写CSS样式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、css选择器综述："><span class="nav-number">3.</span> <span class="nav-text">三、css选择器综述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、css的层叠性和继承性："><span class="nav-number">4.</span> <span class="nav-text">四、css的层叠性和继承性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、css的优先级："><span class="nav-number">5.</span> <span class="nav-text">五、css的优先级：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、css的单位各文字排版"><span class="nav-number">6.</span> <span class="nav-text">六、css的单位各文字排版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、盒模型："><span class="nav-number">7.</span> <span class="nav-text">七、盒模型：</span></a></li></ol></div>
             
           </div>
         </section>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://0531coder.github.io/"/>
-  <updated>2017-04-19T07:52:07.711Z</updated>
+  <updated>2017-06-14T09:50:21.774Z</updated>
   <id>https://0531coder.github.io/</id>
   
   <author>
@@ -14,6 +14,497 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css学习笔记</title>
+    <link href="https://0531coder.github.io/2017/06/14/0607CSS/"/>
+    <id>https://0531coder.github.io/2017/06/14/0607CSS/</id>
+    <published>2017-06-14T09:45:56.112Z</published>
+    <updated>2017-06-14T09:50:21.774Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="一、CSS介绍："><a href="#一、CSS介绍：" class="headerlink" title="一、CSS介绍："></a>一、CSS介绍：</h4><ul>
+<li>CSS：层叠样式表。以html文档为基础。</li>
+<li>要考虑CSS样式的兼容性，CSS3，IE9以上版本支持。CSS2.0+能兼容IE6以上的版本。<h4 id="二、编写CSS样式："><a href="#二、编写CSS样式：" class="headerlink" title="二、编写CSS样式："></a>二、编写CSS样式：</h4></li>
+<li>html标签的默认样式是能够通过浏览器的改变的，所以说标签的样式也叫作浏览器样式（默认样式）。</li>
+<li><p>引入CSS的方式：</p>
+<ul>
+<li>行内设置（设置style属性来实现控制标签样式的效果），style属性中可多条的CSS样式。</li>
+<li>内嵌样式（嵌入样式、内部样式）：在head标签当中嵌入style标签（style中的type属性的默认值就是type=”text/css”）。</li>
+<li>外部样式（外联样式）：通过link标签来实现。引入一个CSS文件来管理CSS样式。</li>
+<li>补充：@import导入样式就是相当于内嵌样式只不过是通过@import来导入一个css文件，也可以使用@import标签将一个css文件引入到另一个css文件。<ul>
+<li>这样使用CSS样式会导致：<br>1、css文件不能并行下载。<br>2、导入样式的书写必须写在所有的css样式规则之前（执行的先后顺序）。<br>导入css使用非常不便，不推荐使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>css的简单属性：<br>  width、height、color、background-color、font-size等。</p>
+</li>
+</ul>
+<h4 id="三、css选择器综述："><a href="#三、css选择器综述：" class="headerlink" title="三、css选择器综述："></a>三、css选择器综述：</h4><ol>
+<li>所有标签选择器*{}：<br>通配符选择器的优先级高于继承的样式。通常使用通配符选择器清除html标签的默认样式（margin padding）。</li>
+<li>标签选择器： p{} div{}</li>
+<li>id选择器： #head{}，id选择器使用’#’，帮助我们调整当前页面唯一id值的标签样式 。id在一个页面中是唯一的。                  <ul>
+<li>补充：id选择器的命名规范：</li>
+<li>只允许出现字母（大小写均可，严格区分大小写）、下划线、数字。id=”p1”和id=”P1”不冲突。</li>
+<li>只允许以字母开头。</li>
+<li>命名没有长度限制，但是不建议太长。</li>
+<li>不允许出现标签名（约定俗成，不是硬性规定）。</li>
+</ul>
+</li>
+<li>类选择器 .head{}：<br>类选择器就是在一个html文档中选出需要统一样式的一组不相关的标签用同一类名命名，然后同一修改其样式。同一个标签可以属于多个类，类名之间用空格隔开。<ul>
+<li>补充：class的属性值可以在同一页面中出现多次，但是id的属性值只能在同一页面中出现一次。建议多使用class，因为便于管理，如果确实能够确定当前页面中这个标签只会出现一次（比如logo），就可以是用id选择器，如果不能保证就使用类选择器。</li>
+</ul>
+<ol>
+<li>层级选择器</li>
+<li>分组选择器</li>
+<li>属性选择器：<br>就是选择出有某个或者某些属性的某个标签。标签名[id]，比方说：h1[id][class]{}，选择出有id属性和class属性的h1标签来实现对应的css样式。也可以指定某个属性的值的标签，比方说指定type为text的输入框input[type=”text”]。</li>
+<li>子元素（子代）选择器：<br>使用”&gt;”连接标签，只选择下面一级的对应的标签。并不是所有的标签嵌套就意味着多级，span的嵌套不算是子集，只有容器嵌套才能算是子集。</li>
+<li>相邻兄弟选择器</li>
+<li>伪类选择器：<pre><code>&lt;pre&gt;&lt;code&gt;
+/*未被访问过的超链接的css样式*/
+a:link {
+    color: red;
+}
+/*访问过的超链接的css样式*/
+a:visited {
+    color: purple;
+}
+/*悬停的时候执行的css样式*/
+a:hover {
+    background-color: silver;
+    color: white;
+}
+/*点击时展示的css样式*/
+a:active {
+    color: yellow;
+}
+/*love hate原则 必须要注意设置伪类的顺序，不然因为层叠的原因会出现效果混乱*/
+/*获得焦点的时候展示的css样式 */
+:focus {
+    font-size: 20px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre></li>
+<li>伪元素选择器： <pre><code>
+/* 伪元素是指的内容css样式的变化 */
+/* artcle-txt类中的第一行显示该css样式。 */
+.artcle-txt:first-line {
+    color: red;
+}
+/* artcle-txt类中的第一个字显示该css样式 */
+.artcle-txt:first-letter {
+    color: green;
+}
+/* 是第一个子标签的span标签显示这个css样式 */
+span:first-child {
+    color: silver;
+}
+/* 只有before和after伪元素才有content，并且content是加在行内。如果再加上display属性并且设置为block，这样就将content设置成了块状元素 */
+.wrap:before,.wrap:after {
+content: "----------------";
+display: block;
+}
+</code></pre>
+
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li>复合选择器：<br>标签和class一起定义，只有符合class的对应的标签才能实现对应的css样式。注意是一个”&amp;&amp;”的关系。标签名在前，类名在后，没有空格。</li>
+<li>后代选择器：（实际上是从右向左进行匹配的）<br>class和标签一起定义，指这个class下面的对应的标签实现对应的css样式。也是一个”&amp;&amp;”的关系。class在前，标签名在后，中间空格隔开。</li>
+<li>并集选择器：<br>多个选择器用”,”隔开。</li>
+</ol>
+<h4 id="四、css的层叠性和继承性："><a href="#四、css的层叠性和继承性：" class="headerlink" title="四、css的层叠性和继承性："></a>四、css的层叠性和继承性：</h4><ul>
+<li>层叠性是指在样式的优先级相同的情况下才会生效。</li>
+<li>层叠性：就是css是分层的，后面设置的样式会覆盖前面设置的样式。</li>
+<li>继承性：子类标签会受父类容器样式的影响。继承的样式是文字相关的样式。但是容器相关的样式不会被继承。一般会在body中，给子类标签设置同一的文字样式。</li>
+</ul>
+<h4 id="五、css的优先级："><a href="#五、css的优先级：" class="headerlink" title="五、css的优先级："></a>五、css的优先级：</h4><pre><code>1. 由高到低：行内样式-&gt;id选择器-&gt;类选择器-&gt;标签选择器。
+2. 继承的css样式优先级要大于标签默认的css样式。
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang=&quot;en&quot;&gt;
+            &lt;head&gt;
+                &lt;meta charset=&quot;UTF-8&quot;&gt;
+                &lt;title&gt;12css优先级案例&lt;/title&gt;
+                &lt;style type=&quot;text/css&quot;&gt;
+                /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+                    body {
+                        color: red;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;这是一个标题&lt;/h1&gt;
+                &lt;div&gt;这是一个div&lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+3. 通配符（*）的css样式要比继承的css样式的优先级要高。
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+4. 标签选择器的css样式的优先级要高于通配符选择器的css样式。
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式 */
+            h1 {
+                color: orange;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+5. 类选择器的css样式的优先级要高于标签选择器的css样式
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+6. id选择器的css样式优先级要高于类选择器的css样式的优先级
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+            /*id选择器的css样式的优先级要高于类选择器的css样式的优先级 */
+            #h1-wrap {
+                color: silver;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot; id=&quot;h1-wrap&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+7. 行内样式的优先级要高于id选择器的优先级
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;12css优先级案例&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+        /* div继承的css样式的优先级要高于标签默认的css样式的优先级 */
+            body {
+                color: red;
+            }
+            /* 通配符的css样式的优先级要比继承的css样式的优先级要高 */
+            * {
+                color: green;
+            }
+            /* 标签选择器的css样式优先级高于通配符选择器的css样式的优先级 */
+            h1 {
+                color: orange;
+            }
+            /* 类选择器的css样式的优先级高于标签选择器的css样式的优先级 */
+            .h1-txt {
+                color: purple;
+            }
+            /*id选择器的css样式的优先级要高于类选择器的css样式的优先级 */
+            #h1-wrap {
+                color: silver;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;h1-txt&quot; id=&quot;h1-wrap&quot; style=&quot;color:pink&quot;&gt;这是一个标题&lt;/h1&gt;
+        &lt;div&gt;这是一个div&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+复合选择器和上面的选择器优先级一致，一个一个的比较就好。
+</code></pre><h4 id="六、css的单位各文字排版"><a href="#六、css的单位各文字排版" class="headerlink" title="六、css的单位各文字排版"></a>六、css的单位各文字排版</h4><ul>
+<li>标签的显示属性：display： display可以来设置块级元素变成一个行内元素（inline），同理display属性可以将行内元素变成一个块级元素（block）。display属性设置为none的话就是将该标签删除（不显示、不占位）。</li>
+<li><p>补充：还有一个属性：visibility:这个属性控制css的隐藏和显示。如果设置为隐藏，控件为隐藏，但是占位还在。</p>
+</li>
+<li><p>行内元素、行内块元素、块级元素之间的区别：</p>
+<ol>
+<li>行内元素不能设置宽高，行内块元素、块级元素能够设置宽高。</li>
+<li>行内元素只有左右边距没有上下边距，行内块元素和块级元素有上下左右边距。</li>
+<li>行内元素和行内块元素不独占一行，块级元素独占一行。</li>
+</ol>
+</li>
+<li><p>css颜色表示：</p>
+<ol>
+<li>RGB颜色表示法：p {color:rgb(255,255,0)}或者p{color:(100%,100%,0)}。（使用0~255之间的值来表示，或者是使用百分比来表示）。</li>
+<li>十六进制的颜色值来表示。</li>
+</ol>
+</li>
+<li>css的长度单位：<ol>
+<li>绝对长度单位：cm、mm、in、pc等等。</li>
+<li>相对长度单位：px、em（相当于当前字体的大小）。开发的时候以px为主。</li>
+</ol>
+</li>
+<li>font-size：设置字体字号的大小。</li>
+<li>font-family：设置字体的样式。<ul>
+<li>注意：<ol>
+<li>为了保证网页显示效果的兼容性一般会设置多个字体，多个字体之间使用英文逗号隔开，优先级顺序是从左往右适配。</li>
+<li>中文字体需要加英文状态下的引号，英文字体不需要引号，当需要设置英文字体时，英文字体名必须在中文字体名之前。</li>
+<li>如果字体名中包含空格、#、$等符号，则该字体名必须加英文状态下的单引号或者双引号。</li>
+<li>尽量使用默认字体，保证在任何用户的浏览器中都能正常显示。</li>
+<li>为了保证兼容性，尽量使用utf-8编码来表示中文字符。可以在浏览器控制台中使用escape()函数来转化。转化完成后将‘%’换成‘/’即可。</li>
+<li>为了更加保证兼容性可以选择衬线体或者非衬线体作为字体最后的一个选择。衬线体和非衬线体是指一种字体的样式。如果前面指定的字体没有找到，浏览器会在当前电脑中任意找一种衬线体或者非衬线体来显示。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>font-weight：字体加粗有继承性，属性值：normal、bold、bolder、lighter、100~900（100的整数倍）。400是normal、700是bold。</li>
+<li>font-style：设置字体的显示风格（斜体、正常、倾斜）。属性值有normal（正常显示）、italic（浏览器会使用斜体的字体显示，如果该字体没有斜体，则正常显示）、oblique（浏览器让字体倾斜显示）。</li>
+</ul>
+<h4 id="七、盒模型："><a href="#七、盒模型：" class="headerlink" title="七、盒模型："></a>七、盒模型：</h4><ul>
+<li>盒模型的前提是DTD声明。不然可能出现非标准盒模型的展示。</li>
+<li>组成：内容区域、内边距、边框、外边距。</li>
+<li>网页就是多个盒子嵌套的结果。</li>
+<li>内边距出现在内容区域的周围，当给元素添加背景色和背景图片时，背景色或者背景图像也就显示在内边距区域内。如果给元素定义边框，边框会出现在内边距和外边距之间。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;一、CSS介绍：&quot;&gt;&lt;a href=&quot;#一、CSS介绍：&quot; class=&quot;headerlink&quot; title=&quot;一、CSS介绍：&quot;&gt;&lt;/a&gt;一、CSS介绍：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;CSS：层叠样式表。以html文档为基础。&lt;/li&gt;
+&lt;li&gt;要考虑CSS样式的
+    
+    </summary>
+    
+      <category term="android" scheme="https://0531coder.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://0531coder.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html学习笔记</title>
+    <link href="https://0531coder.github.io/2017/06/14/0524HTML/"/>
+    <id>https://0531coder.github.io/2017/06/14/0524HTML/</id>
+    <published>2017-06-14T07:07:44.976Z</published>
+    <updated>2017-06-14T09:49:40.866Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="一、介绍："><a href="#一、介绍：" class="headerlink" title="一、介绍："></a>一、介绍：</h4><ol>
+<li>浏览器访问服务器的过程：浏览器接受用户操作–&gt;浏览器封装HTTP请求–&gt;连接服务器：DNS解析–&gt;发送请求Request–&gt;服务器接受请求–&gt;处理请求–&gt;返回响应报文–&gt;浏览器接收响应报文–&gt;渲染页面呈现。    </li>
+<li>DNS：Domain Name System：域名解析系统。先访问DNS服务器来获取域名对应的ip，然后再根据ip来访问服务器。       </li>
+<li>后缀名的问题：htm是为了兼容DOS系统，开发过程中后缀名使用htm或者html都可以。    <h4 id="二、标签："><a href="#二、标签：" class="headerlink" title="二、标签："></a>二、标签：</h4></li>
+<li>doctype：声明html的版本。     </li>
+<li>head标签是给浏览器读取的一些设置：    <blockquote>
+<ul>
+<li>meta标签是告诉浏览器当前的编码格式。当浏览器读取的编码格式和声明的编码格式不一致的时候，会出现乱码。</li>
+<li>title：设置浏览器标题栏中的显示内容。</li>
+<li>Link：引入CSS样式、DNS预解析（缓存网站的ip地址）、引入网站icon的标签<h4 id="三、URL协议："><a href="#三、URL协议：" class="headerlink" title="三、URL协议："></a>三、URL协议：</h4></li>
+</ul>
+</blockquote>
+</li>
+<li>scheme://host.domain:port/path/filename    <blockquote>
+<ul>
+<li>scheme：定义因特网服务的类型，常见的http、https、ftp。</li>
+<li>host：定义域主机（http默认的主机是www）。</li>
+<li>domain：定义因特网域名,比如w3school.com.cn。</li>
+<li>port：定义主机上的端口号（http默认的端口号是80）。</li>
+<li>path：定义服务器上的路径（如果省略，则文档必须位于网站的根目录内）。</li>
+</ul>
+</blockquote>
+</li>
+<li>url编码：<blockquote>
+<ul>
+<li>避免网址（url地址）在全球都能够显示并访问，将不是ASCII编码的字符编码成%ASCII的形式。urlencode（编码）、urldecode（解码）。    </li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="四、相对路径和绝对路径："><a href="#四、相对路径和绝对路径：" class="headerlink" title="四、相对路径和绝对路径："></a>四、相对路径和绝对路径：</h4><ol>
+<li>DOS命令常用操作：<blockquote>
+<ul>
+<li>cls ：清屏。</li>
+<li>Tab键可以自动补齐命令。</li>
+<li>cd demo ：进入Demo文件夹。</li>
+<li>cd ../ ：返回上级目录。</li>
+<li>cd ../../ ：返回上两级目录。</li>
+<li>dir：展示当前目录中的文件和文件夹。</li>
+<li>md：创建目录。</li>
+</ul>
+</blockquote>
+</li>
+<li>相对路径和绝对路径的区别：<blockquote>
+<ul>
+<li>相对路径：<br>  是相对当前位置目标文件或者目录的位置。<br>  ./当前目录下；<br>  ../当前目录的父级目录下；<br>  ../../当前目录的父级的父级目录下。      </li>
+<li>绝对路径：<br>  是指定盘符和位置。<h4 id="五、图片标签的使用"><a href="#五、图片标签的使用" class="headerlink" title="五、图片标签的使用"></a>五、图片标签的使用</h4>&lt;img src=”” title=”图片的标题” alt=”当图片不显示的时候，会显示alt属性文本”&gt;<br>src：图片的地址<br>alt：当图片不显示的时候，会显示alt属性文本<br>title：对网站seo有很大的影响，当鼠标移上去的时候，图片显示的tip提示文本内容。    </li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>常见的图片格式：<br>  .gif：非常小、兼容性好、支持透明、支持动画、但是只能处理255种颜色。色彩太多不行。（logo）<br>  .jpg（JPEG）：有损压缩格式，文件体积小，便于在网络上传输、但是压缩成jpg格式以后容易失真。（广告banner图、海报、照片）<br>  .png：包括png-8和真色彩png。文件体积比gif更小、支持透明、但是会有兼容性的问题（ie6处理png-24会出现灰色的问题）。   </li>
+</ul>
+<h4 id="六、标签："><a href="#六、标签：" class="headerlink" title="六、标签："></a>六、标签：</h4><ol>
+<li><p>heading标签（h1-h6）<br>补充：</p>
+<ul>
+<li>DTD：文档类型定义。<doctype html="">是html5的声明。     </doctype></li>
+<li>heading标签并不是为了页面样式的，而是为了网站的SEO优化，如果heading使用不好，会导致网站的主题不明确。样式在CSS中都可以调整。      </li>
+<li>一般一个页面中只有一个h1标签，可以有多个h2标签。有标题就使用heading标签，没有标题就不使用heading标签（注意语义化）。如果heading标签滥用会被搜索引擎识别为作弊。     </li>
+<li>h1-h6标签对于当前文档的重要性一次降低。        </li>
+</ul>
+</li>
+<li><p>p标签（段落标签）<br>特点：独占一行或多行。</p>
+</li>
+<li><p>单标签：</p>
+<ul>
+<li>水平线标签（&lt;hr/&gt;）、换行标签（&lt;br/&gt;）。</li>
+<li>在h5的标准中，单标签是不需要写”/“的，h5之前的版本是强制需要的。</li>
+<li>html文档空白合并：在html文档中，文字之间的空格会进行合并，多个空格或者是换行会合并成一个空格。</li>
+<li>如果想让html文档换行的话，就得使用<br>标签。如果想加多个空格就使用&nbsp;,这样html文档会识别为空格。</li>
+</ul>
+</li>
+<li><p>其他标签：</p>
+<ul>
+<li>&lt;span&gt;&lt;/span&gt;：文本节标签，对某几个文本进行样式修改。</li>
+<li>&lt;em&gt;&lt;/em&gt;：强调标签。局部文本的加强语气或者文本强调。加上<em></em>以后文本会变成斜体，但是em不是用来对文本样式的修改，主要是包裹文档中的中心文本，进行着重强调，有利于网站的SEO优化。</li>
+<li>&lt;i&gt;&lt;/i&gt;：定义文本成为斜体，纯粹对网页文档的样式进行修改。没有语义化功能，不推荐使用，样式的修改推荐使用CSS进行修改。</li>
+<li>&lt;strong&gt;&lt;/strong&gt;：定义加重语气，对整个文档或者段落进行加重语气。没有语义化作用。注意与&lt;em&gt;&lt;/em&gt;的区别：整体与部分。</li>
+<li>&lt;b&gt;&lt;/b&gt;:加粗标签，单纯样式的改变。</li>
+<li>&lt;sub&gt;&lt;/sub&gt;：下标文字</li>
+<li>&lt;sup&gt;&lt;/sup&gt;：上标文字</li>
+<li>&lt;del&gt;&lt;/del&gt;：添加删除线</li>
+</ul>
+</li>
+</ol>
+<h4 id="七、超链接和图片："><a href="#七、超链接和图片：" class="headerlink" title="七、超链接和图片："></a>七、超链接和图片：</h4><ol>
+<li><p>&lt;a&gt;&lt;/a&gt;：超链接标签</p>
+<ul>
+<li>herf：目标页面的地址</li>
+<li>target：指定在哪个窗口打开目标页面（_blank，_self），_self表示在当前页签打开目标链接，_blank表示在新窗口打开目标链接。如果超链接的目标路径没有确定或者没有，就写一个#。</li>
+</ul>
+</li>
+<li><p>锚点链接：跳转到某个span区域并且该区域放在页面的最上方（如果当前页面够长）。<br>&lt;a href=’#demoplace’&gt;跳转到当前页面的id为demoplace的span区域。<br>&lt;span id=’demoplace’&gt;跳转到当前区域&lt;/span&gt;。<br>注意：超链接不仅仅可以嵌套文本，还可以嵌套表格和图片。</p>
+</li>
+</ol>
+<h4 id="八、高级标签"><a href="#八、高级标签" class="headerlink" title="八、高级标签"></a>八、高级标签</h4><ol>
+<li><p>列表标签</p>
+<ul>
+<li>无序列表：<br>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;ul&gt;：ul标签之间不嵌套其他标签，但是li之间可以嵌套其他任何标签。</li>
+<li>有序列表：<br>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/li&gt;：ul标签之间不嵌套其他标签，但是li之间可以嵌套其他任何标签。</li>
+<li><p>自定义列表：&lt;dl&gt;&lt;/dl&gt;：<br>   &lt;dt&gt;&lt;/dt&gt;：列表的title，里面包裹文本标签（<span>等）<br>   &lt;dd&gt;&lt;/dd&gt;：列表项</span></p>
+</li>
+<li><p>列表嵌套：<br>&lt;table&gt;&lt;/table&gt;：表格标签。<br>&lt;tr&gt;&lt;/tr&gt;：表示行。<br>&lt;td&gt;&lt;/td&gt;：表示列。<br>&lt;thead&gt;&lt;/thead&gt;：表格中的表头，包裹&lt;tr&gt;&lt;td&gt;标签，&lt;th&gt;标签包裹不同的表头,使用&lt;tr&gt;（行头部）或者&lt;td&gt;(列头部)标签包裹。<br>&lt;tbody&gt;&lt;/tbody&gt;：表格中的单元格，就是将&lt;tr&gt;&lt;td&gt;标签使用&lt;tbody&gt;标签包裹。</p>
+</li>
+<li><p>列表单元格的合并：<br>如果跨行合并就在&lt;tr&gt;标签中使用rowspan=num，如果跨列合并就在&lt;td&gt;标签中使用colspan=num。</p>
+</li>
+<li><p>节标签：&lt;div&gt;和&lt;span&gt;标签。<br>&lt;div&gt;：块状标签，独占一行。<br>&lt;span&gt;：行内标签，不会独占一行，与行内的其他标签共占一行。<br>&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;dl&gt;、&lt;li&gt;、&lt;dt&gt;、h1~h6：这些标签都是块级标签。<br>&lt;span&gt;&lt;strong&gt;&lt;em&gt;等：文本相关的标签都是行内标签。    </p>
+</li>
+<li>内联框架标签（不建议使用，使用div替代）：     <blockquote>
+<p>iframe标签（这是一个行内标签），能够在当前html页面中完全显示目标地址的页面。</p>
+</blockquote>
+</li>
+<li>meta标签：可是设置关键字（SEO优化）。</li>
+<li>link标签：引入css</li>
+<li>base标签：可以让当前页面的所有的a标签都有相同的属性。</li>
+<li>pre标签：保留原来的文本格式（空格、换行）</li>
+</ul>
+</li>
+</ol>
+<h4 id="九、表单："><a href="#九、表单：" class="headerlink" title="九、表单："></a>九、表单：</h4><ul>
+<li>在html中一个完整的表单通常由表单控件、提示信息、表单域三个部分构成。</li>
+<li>组合表单的标题：formset lenged是定义表单的头部。</li>
+<li>radio标签可以使用label标签来实现点击文字选中某个选项</li>
+<li>label标签可以帮助某个控件获取焦点。</li>
+<li>select标签：可以表示下拉列表和普通的列表。option可以定义select的选项。</li>
+<li>textarea标签：输入大量文本的时候使用。可以设置行数rows和列数cols。</li>
+</ul>
+<h4 id="十、字符实体："><a href="#十、字符实体：" class="headerlink" title="十、字符实体："></a>十、字符实体：</h4><ul>
+<li>实现在html中页面中显示html的代码。相当于java中的转义字符。</li>
+<li>常用：&copy;：版权符号，&reg;：注册商标</li>
+</ul>
+<p>html总结：      </p>
+<pre><code>1. html：页面结构。    
+ 2. css：页面的样式。    
+3. JavaScript：页面的交互效果。
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;一、介绍：&quot;&gt;&lt;a href=&quot;#一、介绍：&quot; class=&quot;headerlink&quot; title=&quot;一、介绍：&quot;&gt;&lt;/a&gt;一、介绍：&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;浏览器访问服务器的过程：浏览器接受用户操作–&amp;gt;浏览器封装HTTP请求–&amp;gt;连接服务器：DNS解
+    
+    </summary>
+    
+      <category term="android" scheme="https://0531coder.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://0531coder.github.io/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>在view渲染出来之前获取view的宽高</title>

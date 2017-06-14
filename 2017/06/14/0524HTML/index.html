@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hybrid," />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,51 +84,22 @@
 
 
 
-<meta name="description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
-
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
+<meta name="description" content="一、介绍：
+浏览器访问服务器的过程：浏览器接受用户操作–&amp;gt;浏览器封装HTTP请求–&amp;gt;连接服务器：DNS解析–&amp;gt;发送请求Request–&amp;gt;服务器接受请求–&amp;gt;处理请求–&amp;gt;返回响应报文–&amp;gt;浏览器接收响应报文–&amp;gt;渲染页面呈现。    
+DNS：Domain Name System：域名解析系统。先访问DNS服务器来获取域名对应的ip，然后再根据ip来访问服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebView中页面的调试环境搭建">
-<meta property="og:url" content="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/index.html">
+<meta property="og:title" content="html学习笔记">
+<meta property="og:url" content="https://0531coder.github.io/2017/06/14/0524HTML/index.html">
 <meta property="og:site_name" content="singlon">
-<meta property="og:description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
-
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/Charles.jpg">
-<meta property="og:image" content="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg">
-<meta property="og:updated_time" content="2016-11-29T09:46:46.364Z">
+<meta property="og:description" content="一、介绍：
+浏览器访问服务器的过程：浏览器接受用户操作–&amp;gt;浏览器封装HTTP请求–&amp;gt;连接服务器：DNS解析–&amp;gt;发送请求Request–&amp;gt;服务器接受请求–&amp;gt;处理请求–&amp;gt;返回响应报文–&amp;gt;浏览器接收响应报文–&amp;gt;渲染页面呈现。    
+DNS：Domain Name System：域名解析系统。先访问DNS服务器来获取域名对应的ip，然后再根据ip来访问服务">
+<meta property="og:updated_time" content="2017-06-14T09:49:40.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebView中页面的调试环境搭建">
-<meta name="twitter:description" content="Html页面在WebView中调试的环境搭建准备工作
-windows系统
-Oracle VM VirtualBox（使用Genymotion所需的环境）
-Genymotion（Android模拟器）
-Charles(抓包工具)
-Chrome浏览器开始搭建
-
-
-如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运">
-<meta name="twitter:image" content="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg">
+<meta name="twitter:title" content="html学习笔记">
+<meta name="twitter:description" content="一、介绍：
+浏览器访问服务器的过程：浏览器接受用户操作–&amp;gt;浏览器封装HTTP请求–&amp;gt;连接服务器：DNS解析–&amp;gt;发送请求Request–&amp;gt;服务器接受请求–&amp;gt;处理请求–&amp;gt;返回响应报文–&amp;gt;浏览器接收响应报文–&amp;gt;渲染页面呈现。    
+DNS：Domain Name System：域名解析系统。先访问DNS服务器来获取域名对应的ip，然后再根据ip来访问服务">
 
 
 
@@ -154,7 +125,7 @@ Chrome浏览器开始搭建
   };
 </script>
 
-  <title> WebView中页面的调试环境搭建 | singlon </title>
+  <title> html学习笔记 | singlon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -318,7 +289,7 @@ Chrome浏览器开始搭建
             
             
               
-                WebView中页面的调试环境搭建
+                html学习笔记
               
             
           </h1>
@@ -330,8 +301,8 @@ Chrome浏览器开始搭建
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-29T14:05:24+08:00" content="2016-11-29">
-              2016-11-29
+            <time itemprop="dateCreated" datetime="2017-06-14T15:07:44+08:00" content="2017-06-14">
+              2017-06-14
             </time>
           </span>
 
@@ -344,8 +315,8 @@ Chrome浏览器开始搭建
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hybrid/" itemprop="url" rel="index">
-                    <span itemprop="name">Hybrid</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -360,8 +331,8 @@ Chrome浏览器开始搭建
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/29/WebView中页面的调试环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/" itemprop="commentsCount"></span>
+                <a href="/2017/06/14/0524HTML/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/14/0524HTML/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -371,7 +342,7 @@ Chrome浏览器开始搭建
 
           
           
-             <span id="/2016/11/29/WebView中页面的调试环境搭建/" class="leancloud_visitors" data-flag-title="WebView中页面的调试环境搭建">
+             <span id="/2017/06/14/0524HTML/" class="leancloud_visitors" data-flag-title="html学习笔记">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -393,56 +364,143 @@ Chrome浏览器开始搭建
       
 
       
-        <h1 id="Html页面在WebView中调试的环境搭建"><a href="#Html页面在WebView中调试的环境搭建" class="headerlink" title="Html页面在WebView中调试的环境搭建"></a>Html页面在WebView中调试的环境搭建</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>windows系统</li>
-<li>Oracle VM VirtualBox（使用Genymotion所需的环境）</li>
-<li>Genymotion（Android模拟器）</li>
-<li>Charles(抓包工具)</li>
-<li>Chrome浏览器<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2></li>
+        <h4 id="一、介绍："><a href="#一、介绍：" class="headerlink" title="一、介绍："></a>一、介绍：</h4><ol>
+<li>浏览器访问服务器的过程：浏览器接受用户操作–&gt;浏览器封装HTTP请求–&gt;连接服务器：DNS解析–&gt;发送请求Request–&gt;服务器接受请求–&gt;处理请求–&gt;返回响应报文–&gt;浏览器接收响应报文–&gt;渲染页面呈现。    </li>
+<li>DNS：Domain Name System：域名解析系统。先访问DNS服务器来获取域名对应的ip，然后再根据ip来访问服务器。       </li>
+<li>后缀名的问题：htm是为了兼容DOS系统，开发过程中后缀名使用htm或者html都可以。    <h4 id="二、标签："><a href="#二、标签：" class="headerlink" title="二、标签："></a>二、标签：</h4></li>
+<li>doctype：声明html的版本。     </li>
+<li>head标签是给浏览器读取的一些设置：    <blockquote>
+<ul>
+<li>meta标签是告诉浏览器当前的编码格式。当浏览器读取的编码格式和声明的编码格式不一致的时候，会出现乱码。</li>
+<li>title：设置浏览器标题栏中的显示内容。</li>
+<li>Link：引入CSS样式、DNS预解析（缓存网站的ip地址）、引入网站icon的标签<h4 id="三、URL协议："><a href="#三、URL协议：" class="headerlink" title="三、URL协议："></a>三、URL协议：</h4></li>
 </ul>
-<ol>
-<li>如果你的处理器已经打开支持虚拟化技术的选项，则继续向下进行第二个步骤。如果没有打开，则按照步骤打开处理器的虚拟化技术支持选项，否则无法正常运行Genymotion。这里以联想电脑的ThinkPad为例，其他型号电脑请自行百度。<ul>
-<li>保存现在电脑上正在操作的文档，并且重启。</li>
-<li>当进入开机自检阶段（屏幕显示Lenovo Logo）的时候快速点击F2，进入BIOS设置界面。截图如下：<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step1.jpg" alt="开机自检页面"><br>（开机自检页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step2.jpg" alt="BIOS设置页面"><br>(BIOS设置页面）<br><img src="http://ofneqckfu.bkt.clouddn.com/BIOS_step3.jpg" alt="BIOS设置页面"><br>（BIOS设置页面）</li>
-<li>进入Virtualization选项并且将其设置为true即可。</li>
-</ul>
+</blockquote>
 </li>
-<li>安装Oracle VM VirtualBox<ul>
-<li>如果已经安装过Oracle VM VirtualBox，请直接跳到下一步。</li>
-<li>如果没有安装，打开安装文件直接安装即可，安装路径请随意但是不要有中文（切记）。</li>
-<li>安装完打开软件。<br><img src="http://ofneqckfu.bkt.clouddn.com/Oracle%20VM%20VirtualBox.jpg" alt="Oracle VM VirtualBox打开截图"><br>（Oracle VM VirtualBox打开截图）</li>
-<li>选择管理–&gt; 导入虚拟电脑 选择安装包里面的Android虚拟机，按照提示导入完成即可。</li>
-<li>运行导入的虚拟机。</li>
+<li>scheme://host.domain:port/path/filename    <blockquote>
+<ul>
+<li>scheme：定义因特网服务的类型，常见的http、https、ftp。</li>
+<li>host：定义域主机（http默认的主机是www）。</li>
+<li>domain：定义因特网域名,比如w3school.com.cn。</li>
+<li>port：定义主机上的端口号（http默认的端口号是80）。</li>
+<li>path：定义服务器上的路径（如果省略，则文档必须位于网站的根目录内）。</li>
 </ul>
+</blockquote>
 </li>
-<li>安装Genymotion<ul>
-<li>解压安装包中的Genymotion，然后找到Genymotion.exe,这时候就发现了导入到Oracle VM VirtualBox中的虚拟机。</li>
-<li>这时候要进行一个网络代理设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Genymotion_NetSetting.jpg" alt="Genymotion代理设置"><br>（Genymotion网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
-<li>设置完代理以后就可以直接运行模拟器了</li>
-<li>运行模拟器以后，需要将Genymotion的Wifi设置上网代理，具体修改方法就是进入模拟器的设置页面–&gt; 打开无线网络设置（Wifi设置）–&gt; 找到连接的无线网络（Wired network）并且长按–&gt; 选择Modify netWork –&gt; 选中Show advanced options 参数按照下方截图来填就可以了，注意端口号要和在Oracle VM VirtualBox中设置的端口号一致。</li>
-<li>wifi代理设置截图：<br><img src="http://ofneqckfu.bkt.clouddn.com/wifi_proxy.jpg" alt="wifi代理设置"><br>（wifi网络代理设置截图）设置这个代理是为了让Charles能够抓到模拟器发出的请求。</li>
+<li>url编码：<blockquote>
+<ul>
+<li>避免网址（url地址）在全球都能够显示并访问，将不是ASCII编码的字符编码成%ASCII的形式。urlencode（编码）、urldecode（解码）。    </li>
 </ul>
+</blockquote>
 </li>
-<li>打开Chrome，在地址栏输入Chrome://inspect。现在应该能够找到你的设备。<ul>
-<li>为了让Charles能够抓到Chrome的请求，为Chrome安装Proxy SwitchyOmega插件（改插件在安装包里面有），在Chrome中的扩展程序页面可直接拖进安装。</li>
-<li>安装完插件以后新增一种情景模式：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step1.jpg" alt="Omega_step1"></li>
-<li>对新增的情景模式进行设置：<br><img src="http://ofneqckfu.bkt.clouddn.com/Omega_step2.jpg" alt="Omega_step2"></li>
-<li>保存修改后，当使用Charles调试时选择这个情景模式就可以了。</li>
-</ul>
-</li>
-<li>Charles 安装<ul>
-<li>打开安装包中的Charles文件夹，打开Charles安装包，进行安装。安装完成后会发现是30天的试用版，在Charles文件夹中还有一个Charles.jar，将它复制到安装所在位置的lib文件夹下，替换掉原来的即可。重新打开会发现…。</li>
-<li>设置Charles监听的端口：<br><img src="http://ofneqckfu.bkt.clouddn.com/Charles.jpg" alt="Charles监听端口设置截图"> </li>
-<li>同样将端口设置为和模拟器的一致。</li>
-<li>设置完端口以后，打开Genymotion，访问一个网页，会发现请求已经被Charles抓到了。找到你需要调试的域名，右击–&gt; 选择MappingLocal </li>
-<li>按照截图设置<br><img src="http://ofneqckfu.bkt.clouddn.com/MappingLocal.jpg" alt="MappingLocal"></li>
-<li>host设置为要拦截的域名（关键字），port就是默认的80即可。localpath就选择你本地的项目所在路径。</li>
-</ul>
-</li>
-<li>经过以上五步的搭建，你就会发现，你在WebView（安卓模拟器）中请求原来的路径时，已经被charles拦截到本地的项目上了。但是这时候没有控制台啊。怎么调试呢？</li>
-<li>打开Chrome进入Chrome://inspect页面，看到你的请求路径，然后点击inspect，就能打开控制台了，但是这一步第一次打开的时候得科学上网。注意：第一次打开一定要科学上网，但是以后打开就不用了，否则会很慢（卡顿）。<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2>经过上面的搭建，你就可以发现，在webview中的页面可以直接在pc上调试了。<br>附：<a href="http://pan.baidu.com/s/1c9VWnG" title="http://pan.baidu.com/s/1c9VWnG" target="_blank" rel="external">本教程所需安装包</a> 密码：zy7t<br>下载后可以实现离线安装。<br>如有问题，可以留言。</li>
 </ol>
-
+<h4 id="四、相对路径和绝对路径："><a href="#四、相对路径和绝对路径：" class="headerlink" title="四、相对路径和绝对路径："></a>四、相对路径和绝对路径：</h4><ol>
+<li>DOS命令常用操作：<blockquote>
+<ul>
+<li>cls ：清屏。</li>
+<li>Tab键可以自动补齐命令。</li>
+<li>cd demo ：进入Demo文件夹。</li>
+<li>cd ../ ：返回上级目录。</li>
+<li>cd ../../ ：返回上两级目录。</li>
+<li>dir：展示当前目录中的文件和文件夹。</li>
+<li>md：创建目录。</li>
+</ul>
+</blockquote>
+</li>
+<li>相对路径和绝对路径的区别：<blockquote>
+<ul>
+<li>相对路径：<br>  是相对当前位置目标文件或者目录的位置。<br>  ./当前目录下；<br>  ../当前目录的父级目录下；<br>  ../../当前目录的父级的父级目录下。      </li>
+<li>绝对路径：<br>  是指定盘符和位置。<h4 id="五、图片标签的使用"><a href="#五、图片标签的使用" class="headerlink" title="五、图片标签的使用"></a>五、图片标签的使用</h4>&lt;img src=”” title=”图片的标题” alt=”当图片不显示的时候，会显示alt属性文本”&gt;<br>src：图片的地址<br>alt：当图片不显示的时候，会显示alt属性文本<br>title：对网站seo有很大的影响，当鼠标移上去的时候，图片显示的tip提示文本内容。    </li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>常见的图片格式：<br>  .gif：非常小、兼容性好、支持透明、支持动画、但是只能处理255种颜色。色彩太多不行。（logo）<br>  .jpg（JPEG）：有损压缩格式，文件体积小，便于在网络上传输、但是压缩成jpg格式以后容易失真。（广告banner图、海报、照片）<br>  .png：包括png-8和真色彩png。文件体积比gif更小、支持透明、但是会有兼容性的问题（ie6处理png-24会出现灰色的问题）。   </li>
+</ul>
+<h4 id="六、标签："><a href="#六、标签：" class="headerlink" title="六、标签："></a>六、标签：</h4><ol>
+<li><p>heading标签（h1-h6）<br>补充：</p>
+<ul>
+<li>DTD：文档类型定义。<doctype html="">是html5的声明。     </doctype></li>
+<li>heading标签并不是为了页面样式的，而是为了网站的SEO优化，如果heading使用不好，会导致网站的主题不明确。样式在CSS中都可以调整。      </li>
+<li>一般一个页面中只有一个h1标签，可以有多个h2标签。有标题就使用heading标签，没有标题就不使用heading标签（注意语义化）。如果heading标签滥用会被搜索引擎识别为作弊。     </li>
+<li>h1-h6标签对于当前文档的重要性一次降低。        </li>
+</ul>
+</li>
+<li><p>p标签（段落标签）<br>特点：独占一行或多行。</p>
+</li>
+<li><p>单标签：</p>
+<ul>
+<li>水平线标签（&lt;hr/&gt;）、换行标签（&lt;br/&gt;）。</li>
+<li>在h5的标准中，单标签是不需要写”/“的，h5之前的版本是强制需要的。</li>
+<li>html文档空白合并：在html文档中，文字之间的空格会进行合并，多个空格或者是换行会合并成一个空格。</li>
+<li>如果想让html文档换行的话，就得使用<br>标签。如果想加多个空格就使用&nbsp;,这样html文档会识别为空格。</li>
+</ul>
+</li>
+<li><p>其他标签：</p>
+<ul>
+<li>&lt;span&gt;&lt;/span&gt;：文本节标签，对某几个文本进行样式修改。</li>
+<li>&lt;em&gt;&lt;/em&gt;：强调标签。局部文本的加强语气或者文本强调。加上<em></em>以后文本会变成斜体，但是em不是用来对文本样式的修改，主要是包裹文档中的中心文本，进行着重强调，有利于网站的SEO优化。</li>
+<li>&lt;i&gt;&lt;/i&gt;：定义文本成为斜体，纯粹对网页文档的样式进行修改。没有语义化功能，不推荐使用，样式的修改推荐使用CSS进行修改。</li>
+<li>&lt;strong&gt;&lt;/strong&gt;：定义加重语气，对整个文档或者段落进行加重语气。没有语义化作用。注意与&lt;em&gt;&lt;/em&gt;的区别：整体与部分。</li>
+<li>&lt;b&gt;&lt;/b&gt;:加粗标签，单纯样式的改变。</li>
+<li>&lt;sub&gt;&lt;/sub&gt;：下标文字</li>
+<li>&lt;sup&gt;&lt;/sup&gt;：上标文字</li>
+<li>&lt;del&gt;&lt;/del&gt;：添加删除线</li>
+</ul>
+</li>
+</ol>
+<h4 id="七、超链接和图片："><a href="#七、超链接和图片：" class="headerlink" title="七、超链接和图片："></a>七、超链接和图片：</h4><ol>
+<li><p>&lt;a&gt;&lt;/a&gt;：超链接标签</p>
+<ul>
+<li>herf：目标页面的地址</li>
+<li>target：指定在哪个窗口打开目标页面（_blank，_self），_self表示在当前页签打开目标链接，_blank表示在新窗口打开目标链接。如果超链接的目标路径没有确定或者没有，就写一个#。</li>
+</ul>
+</li>
+<li><p>锚点链接：跳转到某个span区域并且该区域放在页面的最上方（如果当前页面够长）。<br>&lt;a href=’#demoplace’&gt;跳转到当前页面的id为demoplace的span区域。<br>&lt;span id=’demoplace’&gt;跳转到当前区域&lt;/span&gt;。<br>注意：超链接不仅仅可以嵌套文本，还可以嵌套表格和图片。</p>
+</li>
+</ol>
+<h4 id="八、高级标签"><a href="#八、高级标签" class="headerlink" title="八、高级标签"></a>八、高级标签</h4><ol>
+<li><p>列表标签</p>
+<ul>
+<li>无序列表：<br>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;ul&gt;：ul标签之间不嵌套其他标签，但是li之间可以嵌套其他任何标签。</li>
+<li>有序列表：<br>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/li&gt;：ul标签之间不嵌套其他标签，但是li之间可以嵌套其他任何标签。</li>
+<li><p>自定义列表：&lt;dl&gt;&lt;/dl&gt;：<br>   &lt;dt&gt;&lt;/dt&gt;：列表的title，里面包裹文本标签（<span>等）<br>   &lt;dd&gt;&lt;/dd&gt;：列表项</span></p>
+</li>
+<li><p>列表嵌套：<br>&lt;table&gt;&lt;/table&gt;：表格标签。<br>&lt;tr&gt;&lt;/tr&gt;：表示行。<br>&lt;td&gt;&lt;/td&gt;：表示列。<br>&lt;thead&gt;&lt;/thead&gt;：表格中的表头，包裹&lt;tr&gt;&lt;td&gt;标签，&lt;th&gt;标签包裹不同的表头,使用&lt;tr&gt;（行头部）或者&lt;td&gt;(列头部)标签包裹。<br>&lt;tbody&gt;&lt;/tbody&gt;：表格中的单元格，就是将&lt;tr&gt;&lt;td&gt;标签使用&lt;tbody&gt;标签包裹。</p>
+</li>
+<li><p>列表单元格的合并：<br>如果跨行合并就在&lt;tr&gt;标签中使用rowspan=num，如果跨列合并就在&lt;td&gt;标签中使用colspan=num。</p>
+</li>
+<li><p>节标签：&lt;div&gt;和&lt;span&gt;标签。<br>&lt;div&gt;：块状标签，独占一行。<br>&lt;span&gt;：行内标签，不会独占一行，与行内的其他标签共占一行。<br>&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;dl&gt;、&lt;li&gt;、&lt;dt&gt;、h1~h6：这些标签都是块级标签。<br>&lt;span&gt;&lt;strong&gt;&lt;em&gt;等：文本相关的标签都是行内标签。    </p>
+</li>
+<li>内联框架标签（不建议使用，使用div替代）：     <blockquote>
+<p>iframe标签（这是一个行内标签），能够在当前html页面中完全显示目标地址的页面。</p>
+</blockquote>
+</li>
+<li>meta标签：可是设置关键字（SEO优化）。</li>
+<li>link标签：引入css</li>
+<li>base标签：可以让当前页面的所有的a标签都有相同的属性。</li>
+<li>pre标签：保留原来的文本格式（空格、换行）</li>
+</ul>
+</li>
+</ol>
+<h4 id="九、表单："><a href="#九、表单：" class="headerlink" title="九、表单："></a>九、表单：</h4><ul>
+<li>在html中一个完整的表单通常由表单控件、提示信息、表单域三个部分构成。</li>
+<li>组合表单的标题：formset lenged是定义表单的头部。</li>
+<li>radio标签可以使用label标签来实现点击文字选中某个选项</li>
+<li>label标签可以帮助某个控件获取焦点。</li>
+<li>select标签：可以表示下拉列表和普通的列表。option可以定义select的选项。</li>
+<li>textarea标签：输入大量文本的时候使用。可以设置行数rows和列数cols。</li>
+</ul>
+<h4 id="十、字符实体："><a href="#十、字符实体：" class="headerlink" title="十、字符实体："></a>十、字符实体：</h4><ul>
+<li>实现在html中页面中显示html的代码。相当于java中的转义字符。</li>
+<li>常用：&copy;：版权符号，&reg;：注册商标</li>
+</ul>
+<p>html总结：      </p>
+<pre><code>1. html：页面结构。    
+ 2. css：页面的样式。    
+3. JavaScript：页面的交互效果。
+</code></pre>
       
     </div>
 
@@ -484,7 +542,7 @@ Chrome浏览器开始搭建
       
         <div class="post-tags">
           
-            <a href="/tags/Hybrid/" rel="tag">#Hybrid</a>
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
       
@@ -493,16 +551,16 @@ Chrome浏览器开始搭建
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/HelloWorld/" rel="next" title="HelloWorld">
-                <i class="fa fa-chevron-left"></i> HelloWorld
+              <a href="/2017/04/07/get view width and height/" rel="next" title="在view渲染出来之前获取view的宽高">
+                <i class="fa fa-chevron-left"></i> 在view渲染出来之前获取view的宽高
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/13/反射_1/" rel="prev" title="java反射（reflection）详解<1>">
-                java反射（reflection）详解<1> <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/14/0607CSS/" rel="prev" title="css学习笔记">
+                css学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -529,8 +587,8 @@ Chrome浏览器开始搭建
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/29/WebView中页面的调试环境搭建/"
-           data-title="WebView中页面的调试环境搭建" data-url="https://0531coder.github.io/2016/11/29/WebView中页面的调试环境搭建/">
+      <div class="ds-thread" data-thread-key="2017/06/14/0524HTML/"
+           data-title="html学习笔记" data-url="https://0531coder.github.io/2017/06/14/0524HTML/">
       </div>
     
   </div>
@@ -641,7 +699,7 @@ Chrome浏览器开始搭建
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Html页面在WebView中调试的环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Html页面在WebView中调试的环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">1.2.</span> <span class="nav-text">开始搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">1.3.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、介绍："><span class="nav-number">1.</span> <span class="nav-text">一、介绍：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、标签："><span class="nav-number">2.</span> <span class="nav-text">二、标签：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、URL协议："><span class="nav-number">3.</span> <span class="nav-text">三、URL协议：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、相对路径和绝对路径："><span class="nav-number">4.</span> <span class="nav-text">四、相对路径和绝对路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、图片标签的使用"><span class="nav-number">5.</span> <span class="nav-text">五、图片标签的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、标签："><span class="nav-number">6.</span> <span class="nav-text">六、标签：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、超链接和图片："><span class="nav-number">7.</span> <span class="nav-text">七、超链接和图片：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、高级标签"><span class="nav-number">8.</span> <span class="nav-text">八、高级标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、表单："><span class="nav-number">9.</span> <span class="nav-text">九、表单：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十、字符实体："><span class="nav-number">10.</span> <span class="nav-text">十、字符实体：</span></a></li></ol></div>
             
           </div>
         </section>
