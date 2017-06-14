@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://0531coder.github.io/"/>
-  <updated>2017-06-14T09:50:21.774Z</updated>
+  <updated>2017-06-14T10:04:43.551Z</updated>
   <id>https://0531coder.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://0531coder.github.io/2017/06/14/0607CSS/"/>
     <id>https://0531coder.github.io/2017/06/14/0607CSS/</id>
     <published>2017-06-14T09:45:56.112Z</published>
-    <updated>2017-06-14T09:50:21.774Z</updated>
+    <updated>2017-06-14T10:04:43.551Z</updated>
     
     <content type="html"><![CDATA[<h4 id="一、CSS介绍："><a href="#一、CSS介绍：" class="headerlink" title="一、CSS介绍："></a>一、CSS介绍：</h4><ul>
 <li>CSS：层叠样式表。以html文档为基础。</li>
@@ -340,10 +340,12 @@ display: block;
     
     </summary>
     
-      <category term="android" scheme="https://0531coder.github.io/categories/android/"/>
+      <category term="前端" scheme="https://0531coder.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="android" scheme="https://0531coder.github.io/tags/android/"/>
+      <category term="前端" scheme="https://0531coder.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="html" scheme="https://0531coder.github.io/tags/html/"/>
     
   </entry>
   
@@ -352,7 +354,7 @@ display: block;
     <link href="https://0531coder.github.io/2017/06/14/0524HTML/"/>
     <id>https://0531coder.github.io/2017/06/14/0524HTML/</id>
     <published>2017-06-14T07:07:44.976Z</published>
-    <updated>2017-06-14T09:49:40.866Z</updated>
+    <updated>2017-06-14T10:06:00.849Z</updated>
     
     <content type="html"><![CDATA[<h4 id="一、介绍："><a href="#一、介绍：" class="headerlink" title="一、介绍："></a>一、介绍：</h4><ol>
 <li>浏览器访问服务器的过程：浏览器接受用户操作–&gt;浏览器封装HTTP请求–&gt;连接服务器：DNS解析–&gt;发送请求Request–&gt;服务器接受请求–&gt;处理请求–&gt;返回响应报文–&gt;浏览器接收响应报文–&gt;渲染页面呈现。    </li>
@@ -499,10 +501,12 @@ display: block;
     
     </summary>
     
-      <category term="android" scheme="https://0531coder.github.io/categories/android/"/>
+      <category term="前端" scheme="https://0531coder.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="android" scheme="https://0531coder.github.io/tags/android/"/>
+      <category term="前端" scheme="https://0531coder.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="html" scheme="https://0531coder.github.io/tags/html/"/>
     
   </entry>
   
