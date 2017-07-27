@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title></title>
-      <url>%2F2017%2F07%2F27%2Fjenkins%2Bgradle%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E6%89%93%E5%8C%85%2F</url>
-      <content type="text"><![CDATA[title: jenkins+gradle持续集成打包date: 2017-07-27 14:05:24tags: Android categories: Android参考博客：http://www.jianshu.com/p/38b2e17ced73http://blog.csdn.net/mabeijianxi/article/details/52680283 遇到的问题: 插件在jenkins中找不到。 离线安装插件：下载地址离线下载网站 插件管理–&gt;高级–&gt;上传安装。（插件之间会有依赖关系，如果报错就先安装依赖的插件）。 ANDROID_HOME环境变量配置: 系统管理–&gt;系统设置–&gt;全局属性，添加一个即可 在gradle编译之前确定jenkins服务器中的workspace代码路径正确。 如果遇到Waiting to acquire shared lock on daemon addresses registry.输出信息，可能是服务器上的glibc版本问题。参考https://www.v2ex.com/t/351402这篇博文解决。 博文中获取蒲公英的Result是使用正则匹配输出log中的字符，但是正则表达式写错了，应该是笔误，将中文的（）换成英文的()。 在linux中引用变量和在windows中引用是不同的，一个是使用%VALUE%，一个是使用${VALUE}。需要注意一下，否则取值可能会有问题。]]></content>
+      <title><![CDATA[jenkins+gradle配置androidCI]]></title>
+      <url>%2F2017%2F07%2F27%2Fjenkins-gradle%E9%85%8D%E7%BD%AEandroidCI%2F</url>
+      <content type="text"><![CDATA[参考博客：http://www.jianshu.com/p/38b2e17ced73http://blog.csdn.net/mabeijianxi/article/details/52680283 遇到的问题: 插件在jenkins中找不到。 离线安装插件：下载地址离线下载网站 插件管理–&gt;高级–&gt;上传安装。（插件之间会有依赖关系，如果报错就先安装依赖的插件）。 ANDROID_HOME环境变量配置: 系统管理–&gt;系统设置–&gt;全局属性，添加一个即可 在gradle编译之前确定jenkins服务器中的workspace代码路径正确。 如果遇到Waiting to acquire shared lock on daemon addresses registry.输出信息，可能是服务器上的glibc版本问题。参考https://www.v2ex.com/t/351402这篇博文解决。 博文中获取蒲公英的Result是使用正则匹配输出log中的字符，但是正则表达式写错了，应该是笔误，将中文的（）换成英文的()。 在linux中引用变量和在windows中引用是不同的，一个是使用%VALUE%，一个是使用${VALUE}。需要注意一下，否则取值可能会有问题。]]></content>
     </entry>
 
     

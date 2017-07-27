@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://0531coder.github.io/"/>
-  <updated>2017-07-27T06:35:46.027Z</updated>
+  <updated>2017-07-27T06:41:40.862Z</updated>
   <id>https://0531coder.github.io/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://0531coder.github.io/2017/07/27/jenkins+gradle%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E6%89%93%E5%8C%85/"/>
-    <id>https://0531coder.github.io/2017/07/27/jenkins+gradle持续集成打包/</id>
-    <published>2017-07-27T06:31:12.827Z</published>
-    <updated>2017-07-27T06:35:46.027Z</updated>
+    <title>jenkins+gradle配置androidCI</title>
+    <link href="https://0531coder.github.io/2017/07/27/jenkins-gradle%E9%85%8D%E7%BD%AEandroidCI/"/>
+    <id>https://0531coder.github.io/2017/07/27/jenkins-gradle配置androidCI/</id>
+    <published>2017-07-27T06:39:18.000Z</published>
+    <updated>2017-07-27T06:41:40.862Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: jenkins+gradle持续集成打包<br>date: 2017-07-27 14:05:24<br>tags: Android      </p>
-<h2 id="categories-Android"><a href="#categories-Android" class="headerlink" title="categories: Android"></a>categories: Android</h2><h4 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h4><p><a href="http://www.jianshu.com/p/38b2e17ced73" target="_blank" rel="external">http://www.jianshu.com/p/38b2e17ced73</a><br><br><a href="http://blog.csdn.net/mabeijianxi/article/details/52680283" target="_blank" rel="external">http://blog.csdn.net/mabeijianxi/article/details/52680283</a></p>
+    <content type="html"><![CDATA[<h4 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h4><p><a href="http://www.jianshu.com/p/38b2e17ced73" target="_blank" rel="external">http://www.jianshu.com/p/38b2e17ced73</a><br><br><a href="http://blog.csdn.net/mabeijianxi/article/details/52680283" target="_blank" rel="external">http://blog.csdn.net/mabeijianxi/article/details/52680283</a></p>
 <h4 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题:"></a>遇到的问题:</h4><ol>
 <li>插件在jenkins中找不到。<ul>
 <li>离线安装插件：下载地址<a href="http://mirror.xmission.com/jenkins/plugins/" target="_blank" rel="external">离线下载网站</a></li>
@@ -44,9 +42,7 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: jenkins+gradle持续集成打包&lt;br&gt;date: 2017-07-27 14:05:24&lt;br&gt;tags: Android      &lt;/p&gt;
-&lt;h2 id=&quot;categories-Android&quot;&gt;&lt;a href=&quot;#categories
+      &lt;h4 id=&quot;参考博客：&quot;&gt;&lt;a href=&quot;#参考博客：&quot; class=&quot;headerlink&quot; title=&quot;参考博客：&quot;&gt;&lt;/a&gt;参考博客：&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/38b2e17ced73&quot; target=&quot;_b
     
     </summary>
     
