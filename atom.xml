@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://0531coder.github.io/"/>
-  <updated>2017-06-14T10:04:43.551Z</updated>
+  <updated>2017-07-27T06:30:48.168Z</updated>
   <id>https://0531coder.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://0531coder.github.io/2017/07/27/jenkins+gradle%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E6%89%93%E5%8C%85/"/>
+    <id>https://0531coder.github.io/2017/07/27/jenkins+gradle持续集成打包/</id>
+    <published>2017-07-27T06:31:12.827Z</published>
+    <updated>2017-07-27T06:30:48.168Z</updated>
+    
+    <content type="html"><![CDATA[<p>####参考博客：<br><a href="http://www.jianshu.com/p/38b2e17ced73" target="_blank" rel="external">http://www.jianshu.com/p/38b2e17ced73</a><br><br><a href="http://blog.csdn.net/mabeijianxi/article/details/52680283" target="_blank" rel="external">http://blog.csdn.net/mabeijianxi/article/details/52680283</a></p>
+<p>####遇到的问题</p>
+<ol>
+<li>插件在jenkins中找不到。<ul>
+<li>离线安装插件：下载地址<a href="http://mirror.xmission.com/jenkins/plugins/" target="_blank" rel="external">离线下载网站</a></li>
+<li>插件管理–&gt;高级–&gt;上传安装。（插件之间会有依赖关系，如果报错就先安装依赖的插件）。</li>
+</ul>
+</li>
+<li>ANDROID_HOME环境变量配置:<ul>
+<li>系统管理–&gt;系统设置–&gt;全局属性，添加一个即可</li>
+</ul>
+</li>
+<li>在gradle编译之前确定jenkins服务器中的workspace代码路径正确。</li>
+<li>如果遇到Waiting to acquire shared lock on daemon addresses registry.输出信息，可能是服务器上的glibc版本问题。参考<a href="https://www.v2ex.com/t/351402" target="_blank" rel="external">https://www.v2ex.com/t/351402</a>这篇博文解决。</li>
+<li>博文中获取蒲公英的Result是使用正则匹配输出log中的字符，但是正则表达式写错了，应该是笔误，将中文的（）换成英文的()。</li>
+<li>在linux中引用变量和在windows中引用是不同的，一个是使用%VALUE%，一个是使用${VALUE}。需要注意一下，否则取值可能会有问题。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####参考博客：&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/38b2e17ced73&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/38b2e17ced73&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>css学习笔记</title>
